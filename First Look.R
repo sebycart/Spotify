@@ -13,7 +13,6 @@ access_token <- get_spotify_access_token()
 
 # Load from Spotify -------------------------------------------------------
 
-
 thug <- get_artist_audio_features("young thug")
 
 ye = get_artist_audio_features("kanye")
