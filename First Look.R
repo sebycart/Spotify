@@ -1,8 +1,15 @@
+
+# Load Packages  ----------------------------------------------------------
+
+
 library(spotifyr)
 library(tidyverse)
 library(plyr); library(dplyr)
 library(redav)
 library(GGally)
+
+
+# Keys --------------------------------------------------------------------
 
 
 Sys.setenv(SPOTIFY_CLIENT_ID = '2c522ebeb84f4aa189ec93288a41d97f')
