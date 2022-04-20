@@ -7,6 +7,7 @@ library(tidyverse)
 library(plyr); library(dplyr)
 library(redav)
 library(GGally)
+library(jsonlite)
 
 
 # Keys --------------------------------------------------------------------
@@ -61,10 +62,9 @@ ye_blake_old = rbind(ye %>%
 
 ggparcoord(ye_blake_old, columns = 3:13, alphaLines = .6, splineFactor = 10, groupColumn = "album_name")
 
+a =get_tracks("15KC3dbhLApMz6YnuT3gjn", market = "US")
 
-
-
-
-
+kanye_mostpopular = get_artist_top_tracks(id = "5K4W6rqBFWDnAN6FQUkS6x",
+                                          market = "US")
 
 
