@@ -67,4 +67,17 @@ a =get_tracks("15KC3dbhLApMz6YnuT3gjn", market = "US")
 kanye_mostpopular = get_artist_top_tracks(id = "5K4W6rqBFWDnAN6FQUkS6x",
                                           market = "US")
 
+##Kanye Information 
+ye_info = get_artist(id = "5K4W6rqBFWDnAN6FQUkS6x")
+## number of followers
+ye_info[["followers"]][["total"]]
+##popularity
+ye_info[["popularity"]]
+
+##Blake shelton
+get_artist(id = "1UTPBmNbXNTittyMJrNkvw")[["popularity"]]
+
+
+
+
 
