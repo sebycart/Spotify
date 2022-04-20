@@ -13,10 +13,12 @@ library(GGally)
 
 
 Sys.setenv(SPOTIFY_CLIENT_ID = '2c522ebeb84f4aa189ec93288a41d97f')
-Sys.setenv(SPOTIFY_CLIENT_SECRET = 'a82b80f800d54972844bf25de6f98ce2')
+Sys.setenv(SPOTIFY_CLIENT_SECRET = '')
+Sys.setenv(REDIRECT_URI = 'http://localhost:8888/callback')
 
 access_token <- get_spotify_access_token()
 
+authorization_token = get_spotify_authorization_code()
 
 # Load from Spotify -------------------------------------------------------
 
@@ -26,8 +28,6 @@ thug <- get_artist_audio_features("young thug")
 ye = get_artist_audio_features("kanye")
 
 blake = get_artist_audio_features("blake shelton")
-
-country = get_playlist_tracks(playlist_id = "c25178d0cede4ca6")
 
 # Clean Data --------------------------------------------------------------
 
