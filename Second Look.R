@@ -41,17 +41,22 @@ for(i in 1:nrow(kanye_discography)){
   
 }
 
-kanye_discography2 = kanye_discography %>% 
-  dedupe_album_names()
-
 Paris = get_track("4Li2WHPkuyCdtmokzW2007", market = "US", authorization = get_spotify_access_token())
+
+kanye_discography2 = kanye_discography %>% 
+  dedupe_album_names() %>% 
+  filter(explicit == TRUE | album_name == "JESUS IS KING" | album_name == "Donda") %>% 
+  mutate(album_release_date_ = as.Date(album_release_date, format = "%Y-%m-%d"))
+
 
 
 ggplot(
-  kanye_discography, 
-  aes(x = popularity, y = album_id)
+  kanye_discography2, 
+  aes(x = popularity, y = fct_reorder(album_name, album_release_date_))
 ) + 
   geom_density_ridges() + 
   theme_ridges() 
 
+ggplot(data = kanye_discography2)+
+  geom_point(aes(x = track_number, y = popularity, col = album_id))
 
