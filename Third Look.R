@@ -9,6 +9,9 @@ library(GGally)
 library(jsonlite)
 library(ggridges)
 library(plotly)
+library(shape)
+library(sf)
+library(tmap)
 
 
 # Keys --------------------------------------------------------------------
@@ -354,17 +357,218 @@ morris_toptracks_IN = get_artist_top_tracks("6WY7D3jk8zTrHtmkqqo5GI", market = "
 ################# Pick 10 Most Popular Rappers
 
 
+rap_toptracks = function(countrycode){
+  rap = get_genre_artists(genre = "rap",
+                          market = countrycode)
+  for(i in 1:20){
+    rapid = rap$id[i]
+    artist_top_tracks = get_artist_top_tracks(rapid)
+    if(i ==1){
+      rap_topartist_toptracks = artist_top_tracks
+    }
+    else{
+      rap_topartist_toptracks =  rbind(rap_topartist_toptracks,artist_top_tracks)
+    }
+    
+  }
+  return(rap_topartist_toptracks%>% 
+           mutate(genre = "rap")%>%
+           mutate(country = countrycode) )}
 
-for(i in 1:10){
-  rapid = rap$id[i]
-  artist_top_tracks = get_artist_top_tracks(rapid)
+###country music 
+country_toptracks = function(countrycode){
+  country_topartists = get_genre_artists(genre = "country",
+                          market = countrycode)
+  for(i in 1:nrow(country_topartists)){
+    countryartist_id = country_topartists$id[i]
+    artist_top_tracks = get_artist_top_tracks(countryartist_id)
+    if(i ==1){
+      country_topartist_toptracks = artist_top_tracks
+    }
+    else{
+      country_topartist_toptracks =  rbind(country_topartist_toptracks,artist_top_tracks)
+    }
+    
+  }
+  return(country_topartist_toptracks %>% 
+           mutate(genre = "country") %>%
+           mutate(country = countrycode))}
+
+
+rapindia = rap_toptracks("IN") 
+rapjapan = rap_toptracks("JP")
+rapus = rap_toptracks("US")
+rapgb = rap_toptracks("GB")
+rapgh = rap_toptracks("GH")
+rapfr = rap_toptracks("FR")
+
+######korean rap 
+koreanrap_topartists = get_genre_artists(genre = "K-rap",
+market = "KR",
+limit = 35)
+
+koreanrap_topartists = koreanrap_topartists[grepl("k-pop",koreanrap_topartists$genres )|grepl("k-rap",koreanrap_topartists$genres ), ] 
+
+
+for(i in 1:nrow(koreanrap_topartists)){
+  rapid_k = koreanrap_topartists$id[i]
+  artist_top_tracks_k = get_artist_top_tracks(rapid_k)
   if(i ==1){
-    rap_topartist_toptracks = artist_top_tracks
+    rap_topartist_toptracks_k = artist_top_tracks_k
   }
   else{
-    rap_topartist_toptracks =  rbind(rap_topartist_toptracks,artist_top_tracks)
+    rap_topartist_toptracks_k =  rbind(rap_topartist_toptracks_k,artist_top_tracks_k)
   }
   
 }
+rapkorea = rap_topartist_toptracks_k %>% 
+  mutate(genre = "rap")%>%
+  mutate(country = "KR") 
+##########
+rap_4 = rbind(rapindia,
+              rapjapan,
+              rapus,
+              rapgb,
+              rapkorea,
+              rapgh,
+              rapfr)
+
+countryindia = country_toptracks("IN")
+countryjapan = country_toptracks("JP")
+countrykorea = country_toptracks("KR")
+countryus = country_toptracks("US")
+countrygb = country_toptracks("GB")
+countrygh = country_toptracks("GH")
+countryfr = country_toptracks("FR")
+
+country_4 = rbind(countryindia,
+                  countryjapan,
+                  countryus,
+                  countrygb,
+                  countrykorea,
+                  countrygh,
+                  countryfr)
+
+rapcountry_4 = rbind(rap_4,country_4)
+
+vcd::mosaic(explicit ~ genre + country, rapcountry_4,
+            direction = c("v", "h", "h"),
+            highlighting_fill = c("light blue","dark green"))
+
+
+
+rapcountry_4$date = as.Date(rapcountry_4$album.release_date, 
+                            "%Y-%m-%d")
+
+ggplot(data = rapcountry_4) + 
+  geom_histogram(aes(date)) + 
+  facet_grid(genre ~ country)
+
+
+
+
+
+
+
+### meanwhile Indian rap artists...
+inrap_topartists = get_genre_artists(genre = "Indian-rap",
+                                         market = "IN",
+                                         limit = 25)
+
+inrap_topartists = inrap_topartists[!grepl("indiana", inrap_topartists$genres),]
+
+#### Merge Korean and Indian artists
+
+IndiaKorea = rbind(inrap_topartists,koreanrap_topartists)
+
+IndiaKorea$followers.total = IndiaKorea$followers.total/1000
+
+IndiaKorea_longer = pivot_longer(IndiaKorea, 
+                                 cols = c(popularity, followers.total),
+                                 names_to = "Metric",
+                                 values_to = "Value")
+
+IndiaKorea_longer$Metric = factor(IndiaKorea_longer$Metric,
+                                  levels = c("popularity", "followers.total"),
+                                  labels = c("Followers", "Popularity"))
+
+
+####
+
+ggplot(
+  IndiaKorea_longer, 
+  aes(x = Value, y = genre)) + 
+  geom_density_ridges() + 
+  theme_ridges() +
+  facet_grid(.~Metric,
+             scales = "free")
+
+
+#######MAP
+
+shape = read_sf("TM_WORLD_BORDERS-0/TM_WORLD_BORDERS-0.3.shp")
+rapcountry_4_rap <- rapcountry_4 %>% 
+  filter(genre == "rap") %>% 
+  group_by(country) %>% 
+  mutate(total = n(),
+         sumE = sum(explicit),
+         Exp = sumE/total) %>% 
+  summarise(Exp = mean(Exp))
+
+df_comb = left_join(shape, rapcountry_4_rap, by = c("ISO2" = "country"))
+
+df_comb$Exp = ifelse(is.na(df_comb$Exp) == T, 0,df_comb$Exp)
+
+tm_shape(df_comb) +
+  tm_polygons("Exp", palette = 'Blues') +
+  tm_text("ISO2", size = .5)
+
+
+
+########################################################################
+
+rap_biplot = rbind(rapus, rapkorea, rapfr)
+
+
+audiofeatures_uskoreafrench1 = get_track_audio_features(rap_biplot$id[1:100])
+audiofeatures_uskoreafrench2 = get_track_audio_features(rap_biplot$id[101:200])
+audiofeatures_uskoreafrench3 = get_track_audio_features(rap_biplot$id[201:300])
+audiofeatures_uskoreafrench4 = get_track_audio_features(rap_biplot$id[301:400])
+audiofeatures_uskoreafrench5 = get_track_audio_features(rap_biplot$id[401:500])
+audiofeatures_uskoreafrench6 = get_track_audio_features(rap_biplot$id[501:600])
+audiofeatures_uskoreafrench7 = get_track_audio_features(rap_biplot$id[601:nrow(rap_biplot)])
+
+audiofeatures_uskoreafrench= rbind(audiofeatures_uskoreafrench1,
+                                   audiofeatures_uskoreafrench2,
+                                   audiofeatures_uskoreafrench3,
+                                   audiofeatures_uskoreafrench4,
+                                   audiofeatures_uskoreafrench5,
+                                   audiofeatures_uskoreafrench6,
+                                   audiofeatures_uskoreafrench7)
+
+audiofeatures_uskoreafrench$country = rap_biplot$country
+
+
+
+draw_biplot(audiofeatures_uskoreafrench[,c(1:11,13)], points = F) +
+  geom_point(aes(color  = audiofeatures_uskoreafrench$country))+
+  scale_color_manual(values = c(1:16))+
+  theme_minimal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
