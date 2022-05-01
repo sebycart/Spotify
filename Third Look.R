@@ -550,6 +550,10 @@ rap_artists_fr$based = c("France", "Belgium", "France", "France",
                          "France", "France", "France", "France",
                          "France","Algeria", "Belgium", "France")
 
+rap_artists_fr$country = "FR"
+rap_artists_fr$local = rap_artists_fr$based == "France" 
+rap_artists_fr$localprop =   sum(rap_artists_fr$based == "France")/length(rap_artists_fr$based)
+
 ####
 rap_artists_kr = get_genre_artists(genre = "K-rap",
                                          market = "KR",
@@ -564,6 +568,12 @@ rap_artists_kr$based = c("US", "Korea", "Korea", "Korea",
                          "Korea","Korea", "Korea", "Korea",
                          "Korea","Korea","Korea")
 
+rap_artists_kr$country = "KR"
+rap_artists_kr$local = rap_artists_kr$based == "Korea"
+rap_artists_kr$localprop = sum(rap_artists_kr$based == "Korea")/length(rap_artists_kr$based)
+ 
+
+
 ####
 rap_artists_in = get_genre_artists(genre = "rap",
                              market = "IN")  
@@ -574,6 +584,10 @@ rap_artists_in$based = c("US", "US", "US", "US",
                          "US", "US", "US", "France",
                          "US","US", "US", "US")
 
+rap_artists_in$country = "IN"
+rap_artists_in$local = rap_artists_in$based == "India"
+rap_artists_in$localprop = sum(rap_artists_in$based == "India")/length(rap_artists_in$based)
+
 ####
 rap_artists_jp = get_genre_artists(genre = "rap",
                              market = "JP")
@@ -583,6 +597,12 @@ rap_artists_jp$based = c("Japan", "Japan", "Japan", "Japan",
                          "Japan", "France", "Japan", "US",
                          "US", "Japan", "Japan", "Japan",
                          "Japan","Japan", "Germany", "Japan")
+
+rap_artists_jp$country = "JP"
+rap_artists_jp$local = rap_artists_jp$based == "Japan"
+rap_artists_jp$localprop = sum(rap_artists_jp$based == "Japan")/length(rap_artists_jp$based)
+
+
 ####
 rap_artists_us = get_genre_artists(genre = "rap",
                              market = "US")
@@ -592,6 +612,11 @@ rap_artists_us$based = c("Canada", "US", "US", "US",
                          "US", "US", "US", "US", 
                          "US", "US", "US", "US",
                          "US", "US", "US", "US")
+
+rap_artists_us$country = "US"
+rap_artists_us$local = rap_artists_us$based == "US"
+rap_artists_us$localprop = sum(rap_artists_us$based == "US")/length(rap_artists_us$based)
+
 ####
 rap_artists_gb = get_genre_artists(genre = "rap",
                            market = "GB")
@@ -599,8 +624,12 @@ rap_artists_gb = get_genre_artists(genre = "rap",
 rap_artists_gb$based = c("Canada", "US", "US", "US", 
                          "US", "US","US", "US",
                          "France", "US", "US", "US",
-                         "US", "US", "UK", "US", 
-                         "US", "US","US", "UK")
+                         "US", "US", "Great Britain", "US", 
+                         "US", "US","US", "Great Britain")
+
+rap_artists_gb$country = "GB"
+rap_artists_gb$local = rap_artists_gb$based == "Great Britain"
+rap_artists_gb$localprop = sum(rap_artists_gb$based == "Great Britain")/length(rap_artists_gb$based)
 
 ####
 rap_artists_gh = get_genre_artists(genre = "rap",
@@ -611,6 +640,12 @@ rap_artists_gh$based = c("Canada", "US", "US", "US",
                          "US", "US", "US", "US", 
                          "US", "US", "US", "US",
                          "US", "US", "US", "US")
+
+rap_artists_gh$country = "GH"
+rap_artists_gh$local = rap_artists_gh$based == "Ghana"
+rap_artists_gh$localprop = sum(rap_artists_gh$based == "Ghana")/length(rap_artists_gh$based)
+
+
 ####
 rap_artists_mx = get_genre_artists(genre = "rap",
                           market = "MX")
@@ -619,9 +654,45 @@ rap_artists_mx$based = c("Mexico", "Mexico", "Mexico", "US",
                           "Canada", "Mexico", "US", "Mexico", 
                           "US", "Mexico", "US", "Mexico", 
                           "US", "France", "Dominica", "US",
-                          "US", "Mexico", "Venezuela", "Dominica")
+                          "US", "Mexico", "Venezuela", "Dominican Republic")
+
+rap_artists_mx$country = "MX"
+rap_artists_mx$local = rap_artists_mx$based == "Mexico"
+rap_artists_mx$localprop = sum(rap_artists_mx$based == "Mexico")/length(rap_artists_mx$based)
 
 #######################################
+
+rap_artists = rbind.fill(rap_artists_fr, rap_artists_gb,
+                         rap_artists_gh, rap_artists_in,
+                         rap_artists_jp, rap_artists_kr,
+                         rap_artists_mx, rap_artists_us)
+
+
+###Stacked bar chart -- top rap artists per country by whether they are from that country
+
+ggplot(rap_artists, aes(x = fct_rev(fct_reorder(factor(country), .x = localprop)), 
+                        fill = local)) +
+  geom_bar(position = "fill")
+
+
+#####
+ggplot(rap_artists, aes(x = fct_reorder(factor(country), .x =followers.total,.fun = mean), 
+                        y = followers.total/1000000,
+                        col = local)) +
+  geom_point(alpha = 0.75)+
+  coord_flip()+
+  theme_linedraw()+
+  labs(x = "Country", y = "Followers (MM)")
+
+
+#####
+ggplot(rap_artists, aes(x = followers.total/1000000, 
+                        y = popularity,
+                        col = local)) +
+  geom_point(alpha = 0.75)+
+  labs(y = "Popularity", x = "Followers (MM)")+
+  facet_grid(.~fct_reorder(factor(country), .x =followers.total,.fun = mean), scales = "free_x") + 
+  theme_linedraw()
 
 
 
