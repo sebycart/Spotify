@@ -557,25 +557,69 @@ rap_artists_kr = get_genre_artists(genre = "K-rap",
 
 rap_artists_kr = rap_artists_kr[grepl("k-pop",rap_artists_kr$genres )|grepl("k-rap",rap_artists_kr$genres ), ] 
 
+rap_artists_kr$based = c("US", "Korea", "Korea", "Korea", 
+                         "Korea", "Korea", "Korea", "Korea",
+                         "Korea", "Korea", "Korea", "Korea",
+                         "Korea", "Korea", "Korea", "Korea",
+                         "Korea","Korea", "Korea", "Korea",
+                         "Korea","Korea","Korea")
 
 ####
 rap_artists_in = get_genre_artists(genre = "rap",
-                             market = "IN")               
+                             market = "IN")  
+
+rap_artists_in$based = c("US", "US", "US", "US", 
+                         "Canada", "Jamaica", "US", "US",
+                         "US", "France", "US", "US",
+                         "US", "US", "US", "France",
+                         "US","US", "US", "US")
+
 ####
 rap_artists_jp = get_genre_artists(genre = "rap",
                              market = "JP")
+
+rap_artists_jp$based = c("Japan", "Japan", "Japan", "Japan", 
+                         "Japan", "Japan", "Japan", "US",
+                         "Japan", "France", "Japan", "US",
+                         "US", "Japan", "Japan", "Japan",
+                         "Japan","Japan", "Germany", "Japan")
 ####
 rap_artists_us = get_genre_artists(genre = "rap",
                              market = "US")
+
+rap_artists_us$based = c("Canada", "US", "US", "US", 
+                         "US", "US", "US", "US", 
+                         "US", "US", "US", "US", 
+                         "US", "US", "US", "US",
+                         "US", "US", "US", "US")
 ####
 rap_artists_gb = get_genre_artists(genre = "rap",
                            market = "GB")
+
+rap_artists_gb$based = c("Canada", "US", "US", "US", 
+                         "US", "US","US", "US",
+                         "France", "US", "US", "US",
+                         "US", "US", "UK", "US", 
+                         "US", "US","US", "UK")
+
 ####
 rap_artists_gh = get_genre_artists(genre = "rap",
                           market = "GH")
+
+rap_artists_gh$based = c("Canada", "US", "US", "US", 
+                         "US", "US", "US", "US", 
+                         "US", "US", "US", "US", 
+                         "US", "US", "US", "US",
+                         "US", "US", "US", "US")
 ####
 rap_artists_mx = get_genre_artists(genre = "rap",
                           market = "MX")
+
+rap_artists_mx$based = c("Mexico", "Mexico", "Mexico", "US", 
+                          "Canada", "Mexico", "US", "Mexico", 
+                          "US", "Mexico", "US", "Mexico", 
+                          "US", "France", "Dominica", "US",
+                          "US", "Mexico", "Venezuela", "Dominica")
 
 #######################################
 
