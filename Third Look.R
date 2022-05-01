@@ -30,139 +30,19 @@ authorization_token = get_spotify_authorization_code()
 # EDA ---------------------------------------------------------------------
 
 
-###Kanye 
-kanye_discography = get_discography("kanye") 
+# pop = get_genre_artists(genre = "pop")
+# hiphop = get_genre_artists(genre = "hip-hop")
+# rock = get_genre_artists(genre = "rock")
+# 
+# 
+# 
+# rapuk = get_genre_artists(genre = "rap", 
+#                           market = "GB")
 
-kanye_discography$popularity = NA
-for(i in 1:nrow(kanye_discography)){
-  
-  kanye_discography$popularity[i] =  get_track(kanye_discography$track_id[i], market = "US", authorization = get_spotify_access_token())[["popularity"]]
-  
-  
-}
-
-kanye_discography2 = kanye_discography %>% 
-  dedupe_album_names() %>% 
-  filter(explicit == TRUE | album_name == "JESUS IS KING" | album_name == "Donda") %>% 
-  mutate(album_release_date_ = as.Date(album_release_date, format = "%Y-%m-%d"))
-
-kanye_discography2$marketscount = NA
-   
-for(i in 1:nrow(kanye_discography2)) {
-  
-  unlisted = kanye_discography2$available_markets[i] %>% unlist()
-
-kanye_discography2$marketscount[i] = length(unlisted)
-}
-
-kanye_discography2 = kanye_discography2 %>% 
-  filter(marketscount > 5)
-
-rap_toptracks = head(kanye_discography2[order(-kanye_discography2$popularity),],5)
-
-
-
-#########
-
-###Drake
-drake_discography = get_discography("drake")  
-
-kanye_discography$popularity = NA
-for(i in 1:nrow(kanye_discography)){
-  
-  kanye_discography$popularity[i] =  get_track(kanye_discography$track_id[i], market = "US", authorization = get_spotify_access_token())[["popularity"]]
-  
-  
-}
-
-kanye_discography2 = kanye_discography %>% 
-  dedupe_album_names() %>% 
-  filter(explicit == TRUE | album_name == "JESUS IS KING" | album_name == "Donda") %>% 
-  mutate(album_release_date_ = as.Date(album_release_date, format = "%Y-%m-%d"))
-
-kanye_discography2$marketscount = NA
-
-for(i in 1:nrow(kanye_discography2)) {
-  
-  unlisted = kanye_discography2$available_markets[i] %>% unlist()
-  
-  kanye_discography2$marketscount[i] = length(unlisted)
-}
-
-kanye_discography2 = kanye_discography2 %>% 
-  filter(marketscount > 5)
-
-rap_toptracks = head(kanye_discography2[order(-kanye_discography2$popularity),],5)
-
-
-
-
-kanyeTT = get_artist_top_tracks("5K4W6rqBFWDnAN6FQUkS6x")
-
-
-beatlesTT = get_artist_top_tracks("3WrFJ7ztbogyGnTHbHJFl2")
-
-
-beatles = get_artist_audio_features("the beatles") 
-
-beatles2 =beatles[, c(30,9:19,26)]
-beatles2=beatles2 %>% 
-  filter(track_name %in% beatlesTT$name) %>% 
-  mutate(artist = "beatles")
-
-####
-kanye = get_artist_audio_features("kanye") 
-
-kanye2 = kanye[, c(30,9:19,26)]
-kanye2 = kanye2 %>% 
-  filter(track_name %in% kanyeTT$name) %>% 
-  mutate(artist = "kanye")
-
-kanyebeatles = rbind(kanye2, beatles2)
-
-
-draw_biplot(kanyebeatles, points = T) +
-  geom_point(aes(color  = kanyebeatles$artist))+
-  scale_color_manual(values = c(1:16))
-  
-
-
-
-
-
-
-
-
-
-
-
-pop = get_genre_artists(genre = "pop")
-hiphop = get_genre_artists(genre = "hip-hop")
-rock = get_genre_artists(genre = "rock")
-
-
-
-rapuk = get_genre_artists(genre = "rap", 
-                          market = "GB")
 
 rap = get_genre_artists(genre = "rap")
 country = get_genre_artists(genre = "country")
 
-##order by popularity rating
-country = country[order(country$popularity, decreasing = T),]
-
-ye_toptracks_IN = get_artist_top_tracks("5K4W6rqBFWDnAN6FQUkS6x", market = "IN")
-ye_toptracks_GB = get_artist_top_tracks("5K4W6rqBFWDnAN6FQUkS6x", market = "GB")
-ed_toptracks_GB = get_artist_top_tracks("6eUKZXaKkcviH0Ku9w2n3V", market = "GB")
-ed_toptracks_IN = get_artist_top_tracks("6eUKZXaKkcviH0Ku9w2n3V", market = "IN", "JP")
-
-country_IN = get_genre_artists(genre = "country",
-                            market = "IN")
-##Billy ray cyrus
-
-billyray_toptracks_IN = get_artist_top_tracks("60rpJ9SgigSd16DOAG7GSa", market = "IN")
-
-morris_toptracks_IN = get_artist_top_tracks("6WY7D3jk8zTrHtmkqqo5GI", market = "IN")
 
 
 ################# Pick 10 Most Popular Rappers
@@ -222,13 +102,14 @@ audiofeatures_country= get_track_audio_features(rapcountry2$id[rapcountry2$genre
 rapcountry_audiofeatures = rbind(audiofeatures_rap,audiofeatures_country)
 
 rapcountry_full = merge(rapcountry2,rapcountry_audiofeatures, by = "id" )
-rapcountry_full$genre2 =ifelse( rapcountry_full$name == "Broadway Girls (feat. Morgan Wallen)",
-                               "Collab",
-                               rapcountry_full$genre)
+ rapcountry_full$genre2 =ifelse( rapcountry_full$name == "Broadway Girls (feat. Morgan Wallen)",
+                                "Collab",
+                                rapcountry_full$genre)
   
-ggplotly(draw_biplot(rapcountry_full[, c(9,31:41,15)], points = T) +
-  geom_point(aes(color  = rapcountry_full$genre2))+
-  scale_color_manual(values = c(4,3,2,1)))
+draw_biplot(rapcountry_full[, c(9,31:41,15)], points = F) +
+  geom_point(aes(color  = rapcountry_full$genre))+
+  scale_color_manual(values = c(1:3))+
+  theme_minimal()
 
 rapcountry_full$genrealbumtype = paste0(rapcountry_full$genre2, rapcountry_full$album.album_type)
 draw_biplot(rapcountry_full[, c(9,31:41,15)], points = T) +
@@ -239,10 +120,9 @@ GGally::ggparcoord(rapcountry_full,
                    31:41,
                    alphaLines = .3, 
                    splineFactor = 10,
-                   groupColumn = "genre")
+                   groupColumn = "genre") + theme_minimal()
  
 
-ggplotly(p)
 
 ggplot(
   rapcountry_full[rapcountry_full$album.album_type != "compilation",], 
@@ -289,69 +169,65 @@ ggplot(
 ) + 
   geom_density_ridges() + 
   theme_ridges() 
-
-
-###
-ye_single = get_artist_albums("5K4W6rqBFWDnAN6FQUkS6x", include_groups = c("single"))
-ye_album = get_artist_albums("5K4W6rqBFWDnAN6FQUkS6x", include_groups = c("album"))
-ye_appearson = get_artist_albums("5K4W6rqBFWDnAN6FQUkS6x", include_groups = c("appears_on"),
-                                 limit = 50)
-
-
-kanye_discography_3 = kanye_discography_2 %>% 
-  filter(!grepl("Deluxe",album_name)) %>% 
-  group_by(album_id) %>% 
-  mutate(album_n = max(track_number)) %>% 
-  mutate(album_order = track_number/album_n) %>% 
-  mutate(album.release_date_ = as.Date(album_release_date, format = "%Y-%m-%d"))
-
-ggplot(data = kanye_discography_3) + 
-  geom_line(aes(x = track_number/album_n, y = speechiness, col = album_id))+
-  geom_smooth(aes(x = track_number/album_n, y = speechiness))
-
-####### analyze data over time
-
-
-rapcountry_full = rapcountry_full %>% 
-  mutate(album.release_date_ = as.Date(album.release_date, format = "%Y-%m-%d"))
-
-
-ggplot(data= rapcountry_full) + 
-  geom_point(aes(x =album.release_date_, y = danceability ))+
-  facet_grid(~genre)
-
-
-
-
-
-
-
-
-
-
-
-##########EXPLICIT
-
-####
- 
-
-tidylocal$Group <- fct_rev(tidylocal$Group)
-mosaic(Group ~ Age, direction = c("v", "h"), tidylocal,
-       highlighting_fill = c("grey80", "cornflowerblue"))
-
-
-
-
-ed_toptracks_GB = get_artist_top_tracks("6eUKZXaKkcviH0Ku9w2n3V", market = "GB")
-ed_toptracks_IN = get_artist_top_tracks("6eUKZXaKkcviH0Ku9w2n3V", market = "IN", "JP")
-
-country_IN = get_genre_artists(genre = "country",
-                               market = "IN")
-##Billy ray cyrus
-
-billyray_toptracks_IN = get_artist_top_tracks("60rpJ9SgigSd16DOAG7GSa", market = "IN")
-
-morris_toptracks_IN = get_artist_top_tracks("6WY7D3jk8zTrHtmkqqo5GI", market = "IN")
+# 
+# 
+# ###
+# ye_single = get_artist_albums("5K4W6rqBFWDnAN6FQUkS6x", include_groups = c("single"))
+# ye_album = get_artist_albums("5K4W6rqBFWDnAN6FQUkS6x", include_groups = c("album"))
+# ye_appearson = get_artist_albums("5K4W6rqBFWDnAN6FQUkS6x", include_groups = c("appears_on"),
+#                                  limit = 50)
+# 
+# 
+# kanye_discography_3 = kanye_discography_2 %>% 
+#   filter(!grepl("Deluxe",album_name)) %>% 
+#   group_by(album_id) %>% 
+#   mutate(album_n = max(track_number)) %>% 
+#   mutate(album_order = track_number/album_n) %>% 
+#   mutate(album.release_date_ = as.Date(album_release_date, format = "%Y-%m-%d"))
+# 
+# ggplot(data = kanye_discography_3) + 
+#   geom_line(aes(x = track_number/album_n, y = speechiness, col = album_id))+
+#   geom_smooth(aes(x = track_number/album_n, y = speechiness))
+# 
+# ####### analyze data over time
+# 
+# 
+# rapcountry_full = rapcountry_full %>% 
+#   mutate(album.release_date_ = as.Date(album.release_date, format = "%Y-%m-%d"))
+# 
+# 
+# ggplot(data= rapcountry_full) + 
+#   geom_point(aes(x =album.release_date_, y = danceability ))+
+#   facet_grid(~genre)
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# ##########EXPLICIT
+# 
+# ####
+#  
+# 
+# 
+# 
+# 
+# ed_toptracks_GB = get_artist_top_tracks("6eUKZXaKkcviH0Ku9w2n3V", market = "GB")
+# ed_toptracks_IN = get_artist_top_tracks("6eUKZXaKkcviH0Ku9w2n3V", market = "IN", "JP")
+# 
+# country_IN = get_genre_artists(genre = "country",
+#                                market = "IN")
+# ##Billy ray cyrus
+# 
+# billyray_toptracks_IN = get_artist_top_tracks("60rpJ9SgigSd16DOAG7GSa", market = "IN")
+# 
+# morris_toptracks_IN = get_artist_top_tracks("6WY7D3jk8zTrHtmkqqo5GI", market = "IN")
 
 
 ################# Pick 10 Most Popular Rappers
@@ -362,7 +238,8 @@ rap_toptracks = function(countrycode){
                           market = countrycode)
   for(i in 1:20){
     rapid = rap$id[i]
-    artist_top_tracks = get_artist_top_tracks(rapid)
+    artist_top_tracks = get_artist_top_tracks(rapid,
+                                              market = countrycode)
     if(i ==1){
       rap_topartist_toptracks = artist_top_tracks
     }
@@ -371,9 +248,14 @@ rap_toptracks = function(countrycode){
     }
     
   }
-  return(rap_topartist_toptracks%>% 
-           mutate(genre = "rap")%>%
-           mutate(country = countrycode) )}
+  
+  data = rap_topartist_toptracks%>% 
+    mutate(genre = "rap")%>%
+    mutate(country = countrycode) 
+  
+  data = data[!duplicated(data$id),]
+  
+  return(data)}
 
 ###country music 
 country_toptracks = function(countrycode){
@@ -381,18 +263,24 @@ country_toptracks = function(countrycode){
                           market = countrycode)
   for(i in 1:nrow(country_topartists)){
     countryartist_id = country_topartists$id[i]
-    artist_top_tracks = get_artist_top_tracks(countryartist_id)
+    artist_top_tracks = get_artist_top_tracks(countryartist_id,
+                                              market = countrycode)
     if(i ==1){
       country_topartist_toptracks = artist_top_tracks
     }
     else{
-      country_topartist_toptracks =  rbind(country_topartist_toptracks,artist_top_tracks)
+      country_topartist_toptracks =  rbind.fill(country_topartist_toptracks,artist_top_tracks)
     }
     
   }
-  return(country_topartist_toptracks %>% 
-           mutate(genre = "country") %>%
-           mutate(country = countrycode))}
+  data = country_topartist_toptracks %>% 
+    mutate(genre = "country") %>%
+    mutate(country = countrycode)
+   
+  data = data[!duplicated(data$id),]
+                   
+           
+  return(data)}
 
 
 rapindia = rap_toptracks("IN") 
@@ -401,6 +289,7 @@ rapus = rap_toptracks("US")
 rapgb = rap_toptracks("GB")
 rapgh = rap_toptracks("GH")
 rapfr = rap_toptracks("FR")
+rapmx = rap_toptracks("MX")
 
 ######korean rap 
 koreanrap_topartists = get_genre_artists(genre = "K-rap",
@@ -412,26 +301,36 @@ koreanrap_topartists = koreanrap_topartists[grepl("k-pop",koreanrap_topartists$g
 
 for(i in 1:nrow(koreanrap_topartists)){
   rapid_k = koreanrap_topartists$id[i]
-  artist_top_tracks_k = get_artist_top_tracks(rapid_k)
+  artist_top_tracks_k = get_artist_top_tracks(rapid_k,
+                                              market = "KR")
   if(i ==1){
     rap_topartist_toptracks_k = artist_top_tracks_k
   }
   else{
-    rap_topartist_toptracks_k =  rbind(rap_topartist_toptracks_k,artist_top_tracks_k)
+    rap_topartist_toptracks_k =  rbind.fill(rap_topartist_toptracks_k,artist_top_tracks_k)
   }
   
 }
 rapkorea = rap_topartist_toptracks_k %>% 
   mutate(genre = "rap")%>%
   mutate(country = "KR") 
+
+##remove duplicate readings (arise from popular rappers featuring on other's songs)
+rapkorea = rapkorea[!duplicated(rapkorea$id),]
+
+
+
+
+
 ##########
-rap_4 = rbind(rapindia,
+rap_4 = rbind.fill(rapindia,
               rapjapan,
               rapus,
               rapgb,
               rapkorea,
               rapgh,
-              rapfr)
+              rapfr,
+              rapmx)
 
 countryindia = country_toptracks("IN")
 countryjapan = country_toptracks("JP")
@@ -440,29 +339,113 @@ countryus = country_toptracks("US")
 countrygb = country_toptracks("GB")
 countrygh = country_toptracks("GH")
 countryfr = country_toptracks("FR")
+countrymx = country_toptracks("MX")
 
-country_4 = rbind(countryindia,
+country_4 = rbind.fill(countryindia,
                   countryjapan,
                   countryus,
                   countrygb,
                   countrykorea,
                   countrygh,
-                  countryfr)
+                  countryfr,
+                  countrymx)
 
 rapcountry_4 = rbind(rap_4,country_4)
 
-vcd::mosaic(explicit ~ genre + country, rapcountry_4,
-            direction = c("v", "h", "h"),
-            highlighting_fill = c("light blue","dark green"))
 
+rapcountry_4 =  rapcountry_4 %>% 
+  group_by(country,genre) %>% 
+  mutate(totaltracks = n()) %>% 
+  mutate(explicitprop = sum(explicit)/n()) %>% 
+  mutate(single = sum(album.album_type == "single"))%>% 
+  mutate(singlepop = single/totaltracks)
+  
+rapcountry_4$country = fct_rev()
+
+vcd::mosaic( explicit ~ genre + fct_reorder2(factor(country), genre == "rap", explicitprop), rapcountry_4,
+            direction = c("h", "v", "h"),
+            highlighting_fill = c("light blue","dark green")) 
+
+vcd::mosaic(album.album_type ~ genre + fct_reorder2(country, genre == "rap", singlepop), rapcountry_4,
+            direction = c("h", "v", "h"),
+            highlighting_fill = c("light blue","dark green","purple"))
+
+
+
+
+rapcountry_4_ = rapcountry_4 %>% 
+  filter(genre == "rap") %>% 
+  group_by(country, album.album_type) %>% 
+  mutate(duration = mean(duration_ms))
+
+
+ggplot(rapcountry_4_[rapcountry_4_$album.album_type != "compilation",])+
+  geom_point(aes(x = duration, y = fct_reorder2(country, album.album_type == "album", duration,
+                                                .desc = F), color = album.album_type))+
+  theme_linedraw()
 
 
 rapcountry_4$date = as.Date(rapcountry_4$album.release_date, 
                             "%Y-%m-%d")
 
+rapcountry_4$country2 = fct_rev(factor(rapcountry_4$country,
+                                levels = c("FR", "KR", "JP", "IN","GH",
+                                           "US","GB", "MX")))
+
+
 ggplot(data = rapcountry_4) + 
-  geom_histogram(aes(date)) + 
-  facet_grid(genre ~ country)
+  geom_histogram(aes(date,
+                     y=..density..,
+                     fill = genre)) + 
+  geom_density(aes(x=date),
+               col = "dark blue")+
+  facet_grid(genre ~ country2,
+             scales="free_y")+ 
+  theme_minimal()
+
+
+rap_4$date = as.Date(rap_4$album.release_date, 
+                            "%Y-%m-%d")
+rap_4$country2 = fct_rev(factor(rap_4$country,
+                        levels = c("FR", "KR", "JP", "IN","GH",
+                                  "US","GB","MX" )))
+
+##rap alone
+ggplot(data = rap_4) + 
+  geom_histogram(aes(date,
+                     y=..density..)) + 
+  geom_density(aes(x=date),
+               col = "dark blue")+
+  facet_grid( .~ country2,
+             scales="free_y") + theme_minimal()
+
+
+
+
+
+rap_4$artists_listed =  NA
+rap_4$artists_n = NA
+
+for(i in 1:nrow(rap_4)){
+
+  rap_4$artists_listed[i] =  paste(rap_4[[1]][[i]],
+                                          collapse = ", ")
+  
+  rap_4$artists_n[i] = nrow(rap_4[[1]][[i]])
+
+}
+
+ggplot(data = rap_4[-796,])+
+  geom_histogram(aes(x = artists_n,
+                y = ..density..))+
+  facet_grid(.~country,
+             scales = "free_x")
+
+
+
+
+
+
 
 
 
@@ -490,7 +473,7 @@ IndiaKorea_longer = pivot_longer(IndiaKorea,
 
 IndiaKorea_longer$Metric = factor(IndiaKorea_longer$Metric,
                                   levels = c("popularity", "followers.total"),
-                                  labels = c("Followers", "Popularity"))
+                                  labels = c("Popularity", "Followers"))
 
 
 ####
@@ -507,6 +490,7 @@ ggplot(
 #######MAP
 
 shape = read_sf("TM_WORLD_BORDERS-0/TM_WORLD_BORDERS-0.3.shp")
+
 rapcountry_4_rap <- rapcountry_4 %>% 
   filter(genre == "rap") %>% 
   group_by(country) %>% 
@@ -527,7 +511,7 @@ tm_shape(df_comb) +
 
 ########################################################################
 
-rap_biplot = rbind(rapus, rapkorea, rapfr)
+rap_biplot = rbind.fill(rapus, rapkorea, rapfr)
 
 
 audiofeatures_uskoreafrench1 = get_track_audio_features(rap_biplot$id[1:100])
@@ -535,16 +519,15 @@ audiofeatures_uskoreafrench2 = get_track_audio_features(rap_biplot$id[101:200])
 audiofeatures_uskoreafrench3 = get_track_audio_features(rap_biplot$id[201:300])
 audiofeatures_uskoreafrench4 = get_track_audio_features(rap_biplot$id[301:400])
 audiofeatures_uskoreafrench5 = get_track_audio_features(rap_biplot$id[401:500])
-audiofeatures_uskoreafrench6 = get_track_audio_features(rap_biplot$id[501:600])
-audiofeatures_uskoreafrench7 = get_track_audio_features(rap_biplot$id[601:nrow(rap_biplot)])
+audiofeatures_uskoreafrench6 = get_track_audio_features(rap_biplot$id[501:569])
+#audiofeatures_uskoreafrench7 = get_track_audio_features(rap_biplot$id[601:nrow(rap_biplot)])
 
-audiofeatures_uskoreafrench= rbind(audiofeatures_uskoreafrench1,
+audiofeatures_uskoreafrench= rbind.fill(audiofeatures_uskoreafrench1,
                                    audiofeatures_uskoreafrench2,
                                    audiofeatures_uskoreafrench3,
                                    audiofeatures_uskoreafrench4,
                                    audiofeatures_uskoreafrench5,
-                                   audiofeatures_uskoreafrench6,
-                                   audiofeatures_uskoreafrench7)
+                                   audiofeatures_uskoreafrench6)
 
 audiofeatures_uskoreafrench$country = rap_biplot$country
 
@@ -556,6 +539,45 @@ draw_biplot(audiofeatures_uskoreafrench[,c(1:11,13)], points = F) +
   theme_minimal()
 
 
+###########################
+
+rap_artists_fr = get_genre_artists(genre = "rap",
+                                   market = "FR")
+
+rap_artists_fr$based = c("France", "Belgium", "France", "France", 
+                         "France", "France", "France", "France",
+                         "France", "France", "France", "France",
+                         "France", "France", "France", "France",
+                         "France","Algeria", "Belgium", "France")
+
+####
+rap_artists_kr = get_genre_artists(genre = "K-rap",
+                                         market = "KR",
+                                         limit = 35)
+
+rap_artists_kr = rap_artists_kr[grepl("k-pop",rap_artists_kr$genres )|grepl("k-rap",rap_artists_kr$genres ), ] 
+
+
+####
+rap_artists_in = get_genre_artists(genre = "rap",
+                             market = "IN")               
+####
+rap_artists_jp = get_genre_artists(genre = "rap",
+                             market = "JP")
+####
+rap_artists_us = get_genre_artists(genre = "rap",
+                             market = "US")
+####
+rap_artists_gb = get_genre_artists(genre = "rap",
+                           market = "GB")
+####
+rap_artists_gh = get_genre_artists(genre = "rap",
+                          market = "GH")
+####
+rap_artists_mx = get_genre_artists(genre = "rap",
+                          market = "MX")
+
+#######################################
 
 
 
@@ -572,3 +594,49 @@ draw_biplot(audiofeatures_uskoreafrench[,c(1:11,13)], points = F) +
 
 
 
+
+
+
+
+
+# 
+# 
+# koreanrap_topartists_ = get_genre_artists(genre = "rap",
+#                                          market = "KR",
+#                                          limit = 35)
+# 
+# japanrap_topartists_ = get_genre_artists(genre = "rap",
+#                                           market = "JP",
+#                                           limit = 35)
+# 
+# usrap_topartists_k = get_genre_artists(genre = "k-rap",
+#                                     market = "US",
+#                                     limit = 35)
+# 
+# krrap_topartists_k = get_genre_artists(genre = "k-rap",
+#                                        market = "KR",
+#                                        limit = 35)
+# 
+# 
+# 
+# 
+# frrap_topartists = get_genre_artists(genre = "rap",
+#                                      market = "FR",
+#                                      limit = 25)
+# 
+# frrap_topartists_ = get_genre_artists(genre = "french-rap",
+#                                      market = "FR",
+#                                      limit = 25)
+# 
+# SNrap_topartists = get_genre_artists(genre = "rap",
+#                                      market = "SN",
+#                                      limit = 25)
+# 
+# CIrap_topartists = get_genre_artists(genre = "french-rap",
+#                                      market = "SN",
+#                                      limit = 25)
+# 
+# BRrap_topartists = get_genre_artists(genre = "rap",
+#                                      market = "BR",
+#                                      limit = 25)
+# 
