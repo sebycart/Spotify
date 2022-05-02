@@ -755,3 +755,99 @@ ggplot(rap_artists, aes(x = followers.total/1000000,
 #                                      market = "BR",
 #                                      limit = 25)
 # 
+
+
+
+# Missing Values ----------------------------------------------------------
+
+library(mi)
+
+  mutate(missing = ifelse(is.na(value), "yes", "no"))
+
+rap_4_na = rap_4 %>% 
+  mutate(across(everything(), as.character)) %>% 
+  pivot_longer(names_to = "key", values_to = "value" , cols = -name) %>% 
+  mutate(missing = ifelse(is.na(value), "yes", "no"))
+
+
+ggplot(rap_4_na, aes(x = key, y = name, fill = missing)) +
+  geom_tile(color = "white") + 
+  scale_fill_viridis_d() + # discrete scale
+  theme(axis.text.x = element_text(size = 4),
+        axis.text.y = element_text(size = 2))
+
+plot_missing(rap_4, percent = FALSE)
+
+missing_data.frame(rap_4)
+
+rap_4_ = rap_4 %>% 
+  group_by(country) %>% 
+  mutate(restrictions.reason.prop = sum(is.na(restrictions.reason) == T)/n())
+
+ggplot(data = rap_4_)+
+  geom_point(aes(x = country, y = restrictions.reason.prop))+
+  scale_y_continuous(breaks = seq(0.75,1,.05))+
+  theme_minimal()
+
+
+
+
+####################################
+country_4_audio1 = get_track_audio_features(country_4$id[1:100])
+country_4_audio2 = get_track_audio_features(country_4$id[101:200])
+country_4_audio3 = get_track_audio_features(country_4$id[201:300])
+country_4_audio4 = get_track_audio_features(country_4$id[301:400])
+country_4_audio5 = get_track_audio_features(country_4$id[401:500])
+country_4_audio6 = get_track_audio_features(country_4$id[501:600])
+country_4_audio7 = get_track_audio_features(country_4$id[601:700])
+country_4_audio8 = get_track_audio_features(country_4$id[701:800])
+country_4_audio9 = get_track_audio_features(country_4$id[901:1000])
+country_4_audio10 = get_track_audio_features(country_4$id[1001:1100])
+country_4_audio11 = get_track_audio_features(country_4$id[1101:1200])
+country_4_audio12 = get_track_audio_features(country_4$id[1201:1300])
+country_4_audio13 = get_track_audio_features(country_4$id[1301:1400])
+country_4_audio14 = get_track_audio_features(country_4$id[1401:1500])
+country_4_audio15 = get_track_audio_features(country_4$id[1501:1590])
+
+country_4_audio= rbind.fill(country_4_audio1,
+                            country_4_audio2 ,
+                            country_4_audio3 ,
+                            country_4_audio4 ,
+                            country_4_audio5 ,
+                            country_4_audio6 ,
+                            country_4_audio7 ,
+                            country_4_audio7 ,
+                            country_4_audio8 ,
+                            country_4_audio9 ,
+                            country_4_audio10 ,
+                            country_4_audio11 ,
+                            country_4_audio12 ,
+                            country_4_audio13 ,
+                            country_4_audio14 ,
+                            country_4_audio15)
+country_4_audio$country = country_4$country
+
+
+p = draw_biplot(country_4_audio[,1:11], points = F) +
+  geom_point(aes(color  = country_4_audio$country), alpha = 0.8)+
+  scale_color_manual(values = c(1:16))+
+  theme_minimal()
+ggplotly(p)
+
+
+####################################
+library(jsonlite)
+
+
+rap_artists_json <- jsonlite::toJSON(x = rap_artists, dataframe = 'columns', pretty = T)
+
+rap_artists_json_rows <- jsonlite::toJSON(x = rap_artists %>% mutate(followers = followers.total), dataframe = 'rows', pretty = T)
+
+
+write(rap_artists_json_rows, "test.json")
+
+
+
+
+
+
