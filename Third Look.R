@@ -580,7 +580,7 @@ rap_artists_in = get_genre_artists(genre = "rap",
 
 rap_artists_in$based = c("US", "US", "US", "US", 
                          "Canada", "Jamaica", "US", "US",
-                         "US", "France", "US", "US",
+                         "US", "US", "US", "US",
                          "US", "US", "US", "France",
                          "US","US", "US", "US")
 
@@ -623,7 +623,7 @@ rap_artists_gb = get_genre_artists(genre = "rap",
 
 rap_artists_gb$based = c("Canada", "US", "US", "US", 
                          "US", "US","US", "US",
-                         "France", "US", "US", "US",
+                         "US", "US", "US", "US",
                          "US", "US", "Great Britain", "US", 
                          "US", "US","US", "Great Britain")
 
@@ -835,7 +835,8 @@ p = draw_biplot(country_4_audio[,1:11], points = F) +
 ggplotly(p)
 
 
-####################################
+#################################### Interactive Plot
+
 library(jsonlite)
 
 
