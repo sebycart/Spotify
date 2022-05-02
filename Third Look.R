@@ -593,9 +593,9 @@ rap_artists_jp = get_genre_artists(genre = "rap",
                              market = "JP")
 
 rap_artists_jp$based = c("Japan", "Japan", "Japan", "Japan", 
-                         "Japan", "Japan", "Japan", "US",
-                         "Japan", "France", "Japan", "US",
-                         "US", "Japan", "Japan", "Japan",
+                         "Japan", "Japan", "Japan", "Japan",
+                         "Japan", "US", "Japan", "France",
+                         "Japan", "US", "US", "Japan",
                          "Japan","Japan", "Germany", "Japan")
 
 rap_artists_jp$country = "JP"
