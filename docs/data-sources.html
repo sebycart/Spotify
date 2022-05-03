@@ -23,7 +23,7 @@
 <meta name="author" content="Sebastian Carter &amp; Yinda Qian" />
 
 
-<meta name="date" content="2022-05-02" />
+<meta name="date" content="2022-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,7 +100,23 @@
             <section class="normal" id="section-">
 <div id="data-sources" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Data sources<a href="data-sources.html#data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Testing</p>
+<p>We sourced our data from <a href="https://developer.spotify.com/documentation/web-api/guides/">Spotify’s API</a>. Spotify manages its API and provides extensive documentation on its variables, etc. Generally speaking, the Spotify API is used by developers to collect information on musical artists, songs, albums, etc. The API provides data on specific artists - such as their followers, popularity, discography, etc. - and on the music in whatever form it is in (songs, albums, playlists). The data on the music includes audio features, such as ‘danceability’, ‘energy’, ‘speechiness’, ‘key’, and more. Clearly, many of the features in the Spotify API data are the output of Spotify’s proprietary algorithms – for example, how you measure “danceability” depends on a number of factors that Spotify have chosen at their discretiono. Another variable we used throughout our project was ‘popularity’. Artists have a <code>popularity</code> rating, as do albums and songs. Spotify does not provide any specific details on how their algorithms calculate this metric, however we do know that it is dependent on number of listens as well as how recent those listens are.</p>
+<p>As with most API’s, many of these metrics are updated continuously – for example, an artist’s number of followers will change, but the audio features of one of their songs will not. All of the information we are able to pull from the API is the latest data, i.e. we cannot see historical data, such as how an artist’s <code>popularity</code> has changed over time.</p>
+<p>In this project we used the <code>SpotifyR</code> package to pull data from the API. <code>SpotifyR</code> is a very useful R wrapper for the Spotify Web API. The package was last updated in November 2021 and it contains a number of useful functions that streamlined the data collection process of this project. The primary functions we used were the following:</p>
+<ul>
+<li><code>get_genre_artists()</code>
+*g This function pulls the most popular artists (as determined by Spotify) in a specific genre and market (country). We used this function to pull the 20 most popular rap and country artists across 8 different markets. Each row in this data equates to an artist.</li>
+<li><code>get_artist_top_tracks()</code>
+<ul>
+<li>This function allows you to pull the top/most popular tracks of an artist (you can choose the number of tracks). We fed in the artist id’s from the <code>get_genre_artists()</code> data and got the top 10 tracks for each of the top 20 rap artists in each country – around 200 tracks for each of the 8 countries country (1600 rap songs total). So in this dataset each row equates to a track/song. Each song has information on its release date, which album its in (if its on an album), its popularity, its duration, the artists on the track, whether it’s explicit or not, and more.</li>
+</ul></li>
+<li><code>get_audio_features()</code>
+<ul>
+<li>This function was useful in getting the audio features of each track. Each track has audio data such as danceability, loudness, acousticness, energy, and more.</li>
+</ul></li>
+</ul>
+<p>After using these functions, we have a few main datasets. The rap and country datasets have around 1600 rows each and each row is a different song. Within these datasets, we have 200 songs for 8 countries, i.e. the top rappers and country artist’s top songs.</p>
+<p>As stated earlier, the API does not provide historical data, which would have been useful in our analysis. Other than this shortcoming, there are no known problems with this data. Of course, when using the Spotify data for analysis, one must be cogniscent that many metrics are the results of Spotify’s proprietary algorithms.</p>
 
 </div>
             </section>
