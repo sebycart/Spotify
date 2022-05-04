@@ -185,118 +185,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We chose 8 different markets to explore and we aimed to cover a variety of languages, regions and cultures. We chose USA, Great Britain, Mexico, India, Japan, Korea, France, and Ghana. We were limited to countries that have Spotify of course, so that is why China was not included. Moreover, we picked Ghana because, as far as African countries go, Spotify is popular there. And we picked Mexico for a similar reason.</p>
 <p>As stated earlier, the API does not provide historical data, which would have been useful in our analysis. Other than this shortcoming, there are no known problems with this data. Of course, when using the Spotify data for analysis, one must be aware that many metrics are the results of Spotify’s proprietary algorithms.</p>
 <p>For a peak into the data, see below the first five tracks in our main dataset.</p>
-<pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                          artists
-## 1                                                                                                                                                                                                         https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 2                                                                                                                                                                                                         https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 3                                                                                                                                                                                                         https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 4                                                                                                                                                                                                         https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 5                                                                                                                                                                                                         https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 6 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, https://api.spotify.com/v1/artists/6Xgp2XMz1fhVYe7i6yNAax, 15UsOTVnJzReFVN1VCnxy4, 6Xgp2XMz1fhVYe7i6yNAax, XXXTENTACION, Trippie Redd, artist, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, spotify:artist:6Xgp2XMz1fhVYe7i6yNAax, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/6Xgp2XMz1fhVYe7i6yNAax
+<pre><code>##                                                                                                                                                                                                  artists
+## 1 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
+## 2 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
+## 3 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
 ##   disc_number duration_ms explicit
 ## 1           1      120026     TRUE
 ## 2           1      110886     TRUE
 ## 3           1      119133     TRUE
-## 4           1       95466     TRUE
-## 5           1      166605     TRUE
-## 6           1      146520     TRUE
 ##                                                       href
 ## 1 https://api.spotify.com/v1/tracks/5TXDeTFVRVY7Cvt0Dw4vWW
 ## 2 https://api.spotify.com/v1/tracks/2ZRo7axmMPeSVUvDbGkJah
 ## 3 https://api.spotify.com/v1/tracks/7m9OqQk4RVRkw9JJdeAw96
-## 4 https://api.spotify.com/v1/tracks/3GVkPk8mqxz0itaAriG1L7
-## 5 https://api.spotify.com/v1/tracks/3ee8Jmje8o58CHK66QrVC2
-## 6 https://api.spotify.com/v1/tracks/7AQim7LbvFVZJE3O8TYgf2
-##                       id is_local is_playable
-## 1 5TXDeTFVRVY7Cvt0Dw4vWW    FALSE        TRUE
-## 2 2ZRo7axmMPeSVUvDbGkJah    FALSE        TRUE
-## 3 7m9OqQk4RVRkw9JJdeAw96    FALSE        TRUE
-## 4 3GVkPk8mqxz0itaAriG1L7    FALSE        TRUE
-## 5 3ee8Jmje8o58CHK66QrVC2    FALSE        TRUE
-## 6 7AQim7LbvFVZJE3O8TYgf2    FALSE        TRUE
-##                                 name popularity
-## 1                            Revenge         84
-## 2                               Hope         83
-## 3                     Jocelyn Flores         82
-## 4 Everybody Dies In Their Nightmares         82
-## 5                               SAD!         82
-## 6     Fuck Love (feat. Trippie Redd)         81
+##                       id is_local is_playable           name popularity
+## 1 5TXDeTFVRVY7Cvt0Dw4vWW    FALSE        TRUE        Revenge         84
+## 2 2ZRo7axmMPeSVUvDbGkJah    FALSE        TRUE           Hope         83
+## 3 7m9OqQk4RVRkw9JJdeAw96    FALSE        TRUE Jocelyn Flores         82
 ##                                                                                                   preview_url
 ## 1 https://p.scdn.co/mp3-preview/f5096665f4f47142d704ee0ce47a8df26d256ad8?cid=2c522ebeb84f4aa189ec93288a41d97f
 ## 2                                                                                                        &lt;NA&gt;
 ## 3 https://p.scdn.co/mp3-preview/99ae2de8b5e6c95349a9775948f65a331ca2a329?cid=2c522ebeb84f4aa189ec93288a41d97f
-## 4 https://p.scdn.co/mp3-preview/245bdb86c13c1a8eee8fdb4f4a82111d6bf0a3fb?cid=2c522ebeb84f4aa189ec93288a41d97f
-## 5                                                                                                        &lt;NA&gt;
-## 6 https://p.scdn.co/mp3-preview/c82958b8b135299e17cb3465048032e6dc7fc98e?cid=2c522ebeb84f4aa189ec93288a41d97f
 ##   track_number  type                                  uri album.album_type
 ## 1            5 track spotify:track:5TXDeTFVRVY7Cvt0Dw4vWW            album
 ## 2           16 track spotify:track:2ZRo7axmMPeSVUvDbGkJah            album
 ## 3            2 track spotify:track:7m9OqQk4RVRkw9JJdeAw96            album
-## 4            4 track spotify:track:3GVkPk8mqxz0itaAriG1L7            album
-## 5            4 track spotify:track:3ee8Jmje8o58CHK66QrVC2            album
-## 6            8 track spotify:track:7AQim7LbvFVZJE3O8TYgf2            album
 ##                                                                                                                                                                                            album.artists
 ## 1 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
 ## 2 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
 ## 3 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 4 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 5 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 6 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
 ##                                                 album.href
 ## 1 https://api.spotify.com/v1/albums/5VdyJkLe3yvOs0l4xXbWp0
 ## 2 https://api.spotify.com/v1/albums/2Ti79nwTsont5ZHfdxIzAm
 ## 3 https://api.spotify.com/v1/albums/5VdyJkLe3yvOs0l4xXbWp0
-## 4 https://api.spotify.com/v1/albums/5VdyJkLe3yvOs0l4xXbWp0
-## 5 https://api.spotify.com/v1/albums/2Ti79nwTsont5ZHfdxIzAm
-## 6 https://api.spotify.com/v1/albums/5VdyJkLe3yvOs0l4xXbWp0
 ##                 album.id
 ## 1 5VdyJkLe3yvOs0l4xXbWp0
 ## 2 2Ti79nwTsont5ZHfdxIzAm
 ## 3 5VdyJkLe3yvOs0l4xXbWp0
-## 4 5VdyJkLe3yvOs0l4xXbWp0
-## 5 2Ti79nwTsont5ZHfdxIzAm
-## 6 5VdyJkLe3yvOs0l4xXbWp0
 ##                                                                                                                                                                                                                       album.images
 ## 1 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00001e02203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00004851203c89bd4391468eea4cc3f5, 640, 300, 64
 ## 2 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273806c160566580d6335d1f16c, https://i.scdn.co/image/ab67616d00001e02806c160566580d6335d1f16c, https://i.scdn.co/image/ab67616d00004851806c160566580d6335d1f16c, 640, 300, 64
 ## 3 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00001e02203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00004851203c89bd4391468eea4cc3f5, 640, 300, 64
-## 4 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00001e02203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00004851203c89bd4391468eea4cc3f5, 640, 300, 64
-## 5 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273806c160566580d6335d1f16c, https://i.scdn.co/image/ab67616d00001e02806c160566580d6335d1f16c, https://i.scdn.co/image/ab67616d00004851806c160566580d6335d1f16c, 640, 300, 64
-## 6 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00001e02203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00004851203c89bd4391468eea4cc3f5, 640, 300, 64
 ##   album.name album.release_date album.release_date_precision album.total_tracks
 ## 1         17         2017-08-25                          day                 11
 ## 2          ?         2018-03-16                          day                 18
 ## 3         17         2017-08-25                          day                 11
-## 4         17         2017-08-25                          day                 11
-## 5          ?         2018-03-16                          day                 18
-## 6         17         2017-08-25                          day                 11
 ##   album.type                            album.uri
 ## 1      album spotify:album:5VdyJkLe3yvOs0l4xXbWp0
 ## 2      album spotify:album:2Ti79nwTsont5ZHfdxIzAm
 ## 3      album spotify:album:5VdyJkLe3yvOs0l4xXbWp0
-## 4      album spotify:album:5VdyJkLe3yvOs0l4xXbWp0
-## 5      album spotify:album:2Ti79nwTsont5ZHfdxIzAm
-## 6      album spotify:album:5VdyJkLe3yvOs0l4xXbWp0
 ##                             album.external_urls.spotify external_ids.isrc
 ## 1 https://open.spotify.com/album/5VdyJkLe3yvOs0l4xXbWp0      USUYG1156895
 ## 2 https://open.spotify.com/album/2Ti79nwTsont5ZHfdxIzAm      USUG11800447
 ## 3 https://open.spotify.com/album/5VdyJkLe3yvOs0l4xXbWp0      USUYG1156892
-## 4 https://open.spotify.com/album/5VdyJkLe3yvOs0l4xXbWp0      USUYG1156894
-## 5 https://open.spotify.com/album/2Ti79nwTsont5ZHfdxIzAm      USUG11800208
-## 6 https://open.spotify.com/album/5VdyJkLe3yvOs0l4xXbWp0      USUYG1156898
 ##                                   external_urls.spotify genre country
 ## 1 https://open.spotify.com/track/5TXDeTFVRVY7Cvt0Dw4vWW   rap      IN
 ## 2 https://open.spotify.com/track/2ZRo7axmMPeSVUvDbGkJah   rap      IN
 ## 3 https://open.spotify.com/track/7m9OqQk4RVRkw9JJdeAw96   rap      IN
-## 4 https://open.spotify.com/track/3GVkPk8mqxz0itaAriG1L7   rap      IN
-## 5 https://open.spotify.com/track/3ee8Jmje8o58CHK66QrVC2   rap      IN
-## 6 https://open.spotify.com/track/7AQim7LbvFVZJE3O8TYgf2   rap      IN
 ##   restrictions.reason
 ## 1                &lt;NA&gt;
 ## 2                &lt;NA&gt;
-## 3                &lt;NA&gt;
-## 4                &lt;NA&gt;
-## 5                &lt;NA&gt;
-## 6                &lt;NA&gt;</code></pre>
+## 3                &lt;NA&gt;</code></pre>
 <p>Also see below the full set of audio features that Spotify calculates and provides for each track. Two example tracks are shown below.</p>
 <pre><code>## # A tibble: 2 × 18
 ##   danceability energy   key loudness  mode speechiness acousticness
