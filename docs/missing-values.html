@@ -23,7 +23,7 @@
 <meta name="author" content="Sebastian Carter &amp; Yinda Qian" />
 
 
-<meta name="date" content="2022-05-03" />
+<meta name="date" content="2022-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -169,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="finalproj_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Clearly there is an issue with the <code>restrictions.reason</code> column. This variable indicates whether a track is subject to restrictions in a given market. The plot below breaks down the number of NA’s per market (8 total), and it clearly shows Korea has the least amount of NA’s whereas the others only have NA’s. Korea has restrictions on certain explicit music (we will discuss this more later on), so we can conclude that if a track has an NA value, then the market doesn’t have a restriction, whereas if there is an NA value we can predict the track was released in the Korean market.</p>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<p>The following plot shows that there are no complete rows, but that the NA’s are only present in two variables. On the right we see almost 60% of rows are missing data in the <code>restrictions.reason</code> column only, almost 50% of rows are missing data in both columns, and a very small amount are missing data in the <code>preview_url</code> column only.</p>
+<p>The following plot shows that there are no complete rows, but that the NA’s are only present in three variables. In the top plot, we see close to 100% of rows are missing data in the <code>restrictions.reason</code> column, and almost 50% of rows are missing data in the <code>preview_url</code> column. In the main plot, we can see the different patterns. First, we see 50% of rows are missing data only in the <code>restrictions.reason</code> column. Next, we see around 40% of rows are missing data in both columns. After that, the patterns are preset amongst a very small subset of data. For example, it seems around 5% of rows are missing in the first and third column (the date column). Clearly, the first two columns see the most NA’s and the most common patterns involve one or both of the first two columns.</p>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 
 </div>

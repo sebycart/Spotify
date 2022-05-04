@@ -5,8 +5,6 @@ Fortunately, our dataset does not have too many NA's where it matters. As we obt
 The following NA analysis is conducted on our main dataset that brings together the most popular rap and country songs across 8 different markets. Each row is a different track, and for each track we have information on its popularity, audio features, release date, song length, etc. In the following plot, we can see two columns that are populated with NA's (marked as yellow). The column that is almost entirely NA values is the `restrictions.reason` variable. The other column with NA's is the `preview_url` column, which basically contains a url with a preview of each track. Clearly, many tracks do not have such information, and this is likely due to music rights and/or label restrictions.
 
 ```{r}
-
-
 # Load Packages  ----------------------------------------------------------
 
 
@@ -20,241 +18,23 @@ library(ggridges)
 library(plotly)
 library(shape)
 library(sf)
+library(tmap)
 library(mi)
 library(jsonlite)
 
-
-# Keys --------------------------------------------------------------------
-
-
-Sys.setenv(SPOTIFY_CLIENT_ID = '2c522ebeb84f4aa189ec93288a41d97f')
-Sys.setenv(SPOTIFY_CLIENT_SECRET = 'a82b80f800d54972844bf25de6f98ce2')
-Sys.setenv(REDIRECT_URI = 'http://localhost:8888/callback')
-
-access_token <- get_spotify_access_token()
-
-authorization_token = get_spotify_authorization_code()
+# Load Packages  ----------------------------------------------------------
+rapcountry_4_ = read.csv("rapcountry_4.csv")
+rap_4_2 = read.csv("rap_4.csv")
 
 
-
-# Data Cleaning, Tidying, Wrangling  ---------------------------------------------------------------------
-
-
-rap = get_genre_artists(genre = "rap")
-country = get_genre_artists(genre = "country")
-
-
-
-################# Pick 10 Most Popular Rappers Globally
-
-
-
-for(i in 1:10){
-  rapid = rap$id[i]
-  artist_top_tracks = get_artist_top_tracks(rapid)
-  if(i ==1){
-    rap_topartist_toptracks = artist_top_tracks
-  }
-  else{
-    rap_topartist_toptracks =  rbind(rap_topartist_toptracks,artist_top_tracks)
-  }
-  
-}
-
-
-################## Pick 10 Popular Country Artists Globally
-
-
-for(i in 1:10){
-  countryid = country$id[i]
-  country_top_tracks = get_artist_top_tracks(countryid)
-  if(i ==1){
-    country_topartist_toptracks = country_top_tracks
-  }
-  else{
-    country_topartist_toptracks =  rbind(country_topartist_toptracks,country_top_tracks)
-  }
-  
-}
-
-###Merge rap and country
-
-rapartist_topsongs_ = rap_topartist_toptracks %>% 
-  mutate(genre = "rap")
-
-countryartist_topsongs_ = country_topartist_toptracks %>% 
-  mutate(genre = "country")
-
-rapcountry = rbind(rapartist_topsongs_,countryartist_topsongs_
-)
-
-rapcountry2 = rapcountry[!duplicated(rapcountry$id),]
-
-###### Explore audio features 
-
-audiofeatures_rap= get_track_audio_features(rapcountry2$id[rapcountry2$genre == "rap"])
-audiofeatures_country= get_track_audio_features(rapcountry2$id[rapcountry2$genre == "country"])
-
-rapcountry_audiofeatures = rbind(audiofeatures_rap,audiofeatures_country)
-
-rapcountry_full = merge(rapcountry2,rapcountry_audiofeatures, by = "id" )
-rapcountry_full$genre2 =ifelse( rapcountry_full$name == "Broadway Girls (feat. Morgan Wallen)",
-                                "Collab",
-                                rapcountry_full$genre)
-
-
-
-rapcountry_full$albumpop = NA
-for(i in 1:nrow(rapcountry_full)){
-  if(rapcountry_full$album.album_type[i] == "album"){
-    rapcountry_full$albumpop[i] = get_album(rapcountry_full$album.id[i])$popularity
-  }
-  else(rapcountry_full$albumpop[i] = NA)
-}
-
-
-
-################# Function that pulls top 20 rap songs from the top 20 artists in a market
-
-
-rap_toptracks = function(countrycode){
-  rap = get_genre_artists(genre = "rap",
-                          market = countrycode)
-  for(i in 1:20){
-    rapid = rap$id[i]
-    artist_top_tracks = get_artist_top_tracks(rapid,
-                                              market = countrycode)
-    if(i ==1){
-      rap_topartist_toptracks = artist_top_tracks
-    }
-    else{
-      rap_topartist_toptracks =  rbind(rap_topartist_toptracks,artist_top_tracks)
-    }
-    
-  }
-  
-  data = rap_topartist_toptracks%>% 
-    mutate(genre = "rap")%>%
-    mutate(country = countrycode) 
-  
-  data = data[!duplicated(data$id),]
-  
-  return(data)}
-
-###Function that pulls top 20 country songs from the top 20 artists in a market
-country_toptracks = function(countrycode){
-  country_topartists = get_genre_artists(genre = "country",
-                                         market = countrycode)
-  for(i in 1:nrow(country_topartists)){
-    countryartist_id = country_topartists$id[i]
-    artist_top_tracks = get_artist_top_tracks(countryartist_id,
-                                              market = countrycode)
-    if(i ==1){
-      country_topartist_toptracks = artist_top_tracks
-    }
-    else{
-      country_topartist_toptracks =  rbind.fill(country_topartist_toptracks,artist_top_tracks)
-    }
-    
-  }
-  data = country_topartist_toptracks %>% 
-    mutate(genre = "country") %>%
-    mutate(country = countrycode)
-  
-  data = data[!duplicated(data$id),]
-  
-  
-  return(data)}
-
-
-#####Top rap across markets
-
-rapindia = rap_toptracks("IN") 
-rapjapan = rap_toptracks("JP")
-rapus = rap_toptracks("US")
-rapgb = rap_toptracks("GB")
-rapgh = rap_toptracks("GH")
-rapfr = rap_toptracks("FR")
-rapmx = rap_toptracks("MX")
-
-######korean rap 
-koreanrap_topartists = get_genre_artists(genre = "K-rap",
-                                         market = "KR",
-                                         limit = 35)
-
-koreanrap_topartists = koreanrap_topartists[grepl("k-pop",koreanrap_topartists$genres )|grepl("k-rap",koreanrap_topartists$genres ), ] 
-
-
-for(i in 1:nrow(koreanrap_topartists)){
-  rapid_k = koreanrap_topartists$id[i]
-  artist_top_tracks_k = get_artist_top_tracks(rapid_k,
-                                              market = "KR")
-  if(i ==1){
-    rap_topartist_toptracks_k = artist_top_tracks_k
-  }
-  else{
-    rap_topartist_toptracks_k =  rbind.fill(rap_topartist_toptracks_k,artist_top_tracks_k)
-  }
-  
-}
-rapkorea = rap_topartist_toptracks_k %>% 
-  mutate(genre = "rap")%>%
-  mutate(country = "KR") 
-
-##remove duplicate readings (arise from popular rappers featuring on other's songs)
-rapkorea = rapkorea[!duplicated(rapkorea$id),]
-
-
-####bind rap datasets
-rap_4 = rbind.fill(rapindia,
-                   rapjapan,
-                   rapus,
-                   rapgb,
-                   rapkorea,
-                   rapgh,
-                   rapfr,
-                   rapmx)
-
-###### Top country music across markets
-
-countryindia = country_toptracks("IN")
-countryjapan = country_toptracks("JP")
-countrykorea = country_toptracks("KR")
-countryus = country_toptracks("US")
-countrygb = country_toptracks("GB")
-countrygh = country_toptracks("GH")
-countryfr = country_toptracks("FR")
-countrymx = country_toptracks("MX")
-
-country_4 = rbind.fill(countryindia,
-                       countryjapan,
-                       countryus,
-                       countrygb,
-                       countrykorea,
-                       countrygh,
-                       countryfr,
-                       countrymx)
-
-###Bring rap and country together
-rapcountry_4 = rbind(rap_4,country_4)
-
-
-rapcountry_4 =  rapcountry_4 %>% 
+rapcountry_4_ =  rapcountry_4_ %>% 
   group_by(country,genre) %>% 
   mutate(totaltracks = n()) %>% 
   mutate(explicitprop = sum(explicit)/n()) %>% 
   mutate(single = sum(album.album_type == "single"))%>% 
   mutate(singlepop = single/totaltracks)
 
-
-
-
-rap_4_na = rap_4 %>% 
-  mutate(across(everything(), as.character)) %>% 
-  pivot_longer(names_to = "key", values_to = "value" , cols = -name) %>% 
-  mutate(missing = ifelse(is.na(value), "yes", "no"))
-
-rapcountry_4_na <- rapcountry_4 %>% 
+rapcountry_4_na <- rapcountry_4_ %>% 
   mutate(across(everything(), as.character)) %>% 
   pivot_longer(names_to = "key", values_to = "value" , cols = -name) %>% 
   mutate(missing = ifelse(is.na(value), "yes", "no"))
@@ -267,7 +47,7 @@ ggplot(rapcountry_4_na, aes(x = key, y = name, fill = missing)) +
 
 #missing_data.frame(rap_4)
 
-rap_4_ = rap_4 %>% 
+rapcountry_4__ = rapcountry_4_ %>% 
   group_by(country) %>% 
   mutate(`restrictions.reason.prop` = sum(is.na(restrictions.reason) == T)/n())
 
@@ -376,15 +156,15 @@ plot_missing2 <- function(x, percent = TRUE) {
 Clearly there is an issue with the `restrictions.reason` column. This variable indicates whether a track is subject to restrictions in a given market. The plot below breaks down the number of NA's per market (8 total), and it clearly shows Korea has the least amount of NA's whereas the others only have NA's. Korea has restrictions on certain explicit music (we will discuss this more later on), so we can conclude that if a track has an NA value, then the market doesn't have a restriction, whereas if there is an NA value we can predict the track was released in the Korean market. 
 
 ```{r}
-ggplot(data = rap_4_)+
+ggplot(data = rapcountry_4__)+
   geom_point(aes(x = country, y = restrictions.reason.prop))+
   scale_y_continuous(breaks = seq(0.75,1,.05))+
   theme_minimal()
 ```
 
-The following plot shows that there are no complete rows, but that the NA's are only present in two variables. On the right we see almost 60% of rows are missing data in the `restrictions.reason` column only, almost 50% of rows are missing data in both columns, and a very small amount are missing data in the `preview_url` column only. 
+The following plot shows that there are no complete rows, but that the NA's are only present in three variables. In the top plot, we see close to 100% of rows are missing data in the `restrictions.reason` column, and almost 50% of rows are missing data in the `preview_url` column. In the main plot, we can see the different patterns. First, we see 50% of rows are missing data only in the `restrictions.reason` column. Next, we see around 40% of rows are missing data in both columns. After that, the patterns are preset amongst a very small subset of data. For example, it seems around 5% of rows are missing in the first and third column (the date column). Clearly, the first two columns see the most NA's and the most common patterns involve one or both of the first two columns.
 
 ```{r}
-plot_missing2(rapcountry_4)
+plot_missing2(rapcountry_4__)
 ```
 

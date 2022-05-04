@@ -323,11 +323,11 @@ audiofeatures_uskoreafrench$country = rap_biplot$country
 rap_artists_fr = get_genre_artists(genre = "rap",
                                    market = "FR")
 
-rap_artists_fr$based = c("France", "Belgium", "France", "France", 
+rap_artists_fr$based = c("France", "France", "France", "France", 
                          "France", "France", "France", "France",
                          "France", "France", "France", "France",
-                         "France", "France", "France", "France",
-                         "France","Algeria", "Belgium", "France")
+                         "France", "France", "France", "Algeria",
+                         "France","France", "France", "Canada")
 
 rap_artists_fr$country = "FR"
 rap_artists_fr$local = rap_artists_fr$based == "France" 
@@ -340,12 +340,12 @@ rap_artists_kr = get_genre_artists(genre = "K-rap",
 
 rap_artists_kr = rap_artists_kr[grepl("k-pop",rap_artists_kr$genres )|grepl("k-rap",rap_artists_kr$genres ), ] 
 
-rap_artists_kr$based = c("US", "Korea", "Korea", "Korea", 
+rap_artists_kr$based = c("Korea", "US", "Korea", "Korea", 
                          "Korea", "Korea", "Korea", "Korea",
                          "Korea", "Korea", "Korea", "Korea",
                          "Korea", "Korea", "Korea", "Korea",
                          "Korea","Korea", "Korea", "Korea",
-                         "Korea","Korea","Korea")
+                         "Korea","Korea")
 
 rap_artists_kr$country = "KR"
 rap_artists_kr$local = rap_artists_kr$based == "Korea"
@@ -359,9 +359,9 @@ rap_artists_in = get_genre_artists(genre = "rap",
 
 rap_artists_in$based = c("US", "US", "US", "US", 
                          "Canada", "Jamaica", "US", "US",
-                         "US", "US", "US", "US",
                          "US", "US", "US", "France",
-                         "US","US", "US", "US")
+                         "US", "US", "US", "US",
+                         "France","US", "US", "US")
 
 rap_artists_in$country = "IN"
 rap_artists_in$local = rap_artists_in$based == "India"
@@ -375,7 +375,7 @@ rap_artists_jp$based = c("Japan", "Japan", "Japan", "Japan",
                          "Japan", "Japan", "Japan", "Japan",
                          "Japan", "US", "Japan", "France",
                          "Japan", "US", "US", "Japan",
-                         "Japan","Japan", "Germany", "Japan")
+                         "Japan","Germany", "Japan", "Japan")
 
 rap_artists_jp$country = "JP"
 rap_artists_jp$local = rap_artists_jp$based == "Japan"
@@ -402,9 +402,9 @@ rap_artists_gb = get_genre_artists(genre = "rap",
 
 rap_artists_gb$based = c("Canada", "US", "US", "US", 
                          "US", "US","US", "US",
-                         "US", "US", "US", "US",
+                         "US", "France", "US", "US",
                          "US", "US", "Great Britain", "US", 
-                         "US", "US","US", "Great Britain")
+                         "US", "US","US", "US")
 
 rap_artists_gb$country = "GB"
 rap_artists_gb$local = rap_artists_gb$based == "Great Britain"
@@ -432,7 +432,7 @@ rap_artists_mx = get_genre_artists(genre = "rap",
 rap_artists_mx$based = c("Mexico", "Mexico", "Mexico", "US", 
                          "Canada", "Mexico", "US", "Mexico", 
                          "US", "Mexico", "US", "Mexico", 
-                         "US", "France", "Dominica", "US",
+                         "US", "France", "Dominican Republic", "US",
                          "US", "Mexico", "Venezuela", "Dominican Republic")
 
 rap_artists_mx$country = "MX"
@@ -446,14 +446,19 @@ rap_artists = rbind.fill(rap_artists_fr, rap_artists_gb,
                          rap_artists_jp, rap_artists_kr,
                          rap_artists_mx, rap_artists_us)
 
+rap_artists2 = rap_artists[, 5:16]
 
+write.csv(x = rap_artists2, file = "rap_artists.csv")
 
+write.csv(x = Filter(Negate(is.list), rapcountry_full), file = "rapcountry_full.csv")
 
+write.csv(x = Filter(Negate(is.list), rap_4), file = "rap_4.csv")
 
+write.csv(x = Filter(Negate(is.list), rapcountry_4), file = "rapcountry_4.csv")
 
+write.csv(x = Filter(Negate(is.list), IndiaKorea_longer), file = "IndiaKorea_longer.csv")
 
-
-
+write.csv(x = Filter(Negate(is.list), audiofeatures_uskoreafrench), file = "audiofeatures_uskoreafrench.csv")
 
 
 
@@ -646,9 +651,28 @@ ggplot(data = rap_4_)+
 
 
 
-rap_artists_json <- jsonlite::toJSON(x = rap_artists, dataframe = 'columns', pretty = T)
+# rap_artists_json <- jsonlite::toJSON(x = rap_artists, dataframe = 'columns', pretty = T)
 
-rap_artists_json_rows <- jsonlite::toJSON(x = rap_artists %>% mutate(followers = followers.total), dataframe = 'rows', pretty = T)
+rap_artists_json_rows <- jsonlite::toJSON(x = rap_artists %>% 
+                                            mutate(followers = followers.total) %>%
+                                            mutate(country2 = ifelse(country == "GB",
+                                                                     "Great Britain",
+                                                                     ifelse(country == "GH",
+                                                                            "Ghana",
+                                                                            ifelse(country == "MX",
+                                                                                   "Mexico",
+                                                                                   ifelse(country == "IN",
+                                                                                          "India",
+                                                                                          ifelse(country == "KR",
+                                                                                                 "Korea",
+                                                                                                 ifelse(country == "US",
+                                                                                                        "United States",
+                                                                                                        ifelse(country == "JP",
+                                                                                                               "Japan", 
+                                                                                                               ifelse(country == "FR",
+                                                                                                                      "France", country))))))))), 
+                                          dataframe = 'rows', 
+                                          pretty = T)
 
 
 write(rap_artists_json_rows, "test.json")

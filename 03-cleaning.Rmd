@@ -1,1 +1,46 @@
 # Data transformation
+
+As described in [Data sources], we used three main functions from the `SpotifyR` package to pull the data from the web API. Then, we conducted data manipulation and transformation to rework the data into a form we could use. 
+
+In order to compare rap and country music listening trends across 8 different markets, we needed to use the `get_genre_artists()` function to pull the top artists in each market and genre, and then we needed `get_artist_top_tracks()` to get the top artists' most popular tracks. To streamline this process, we created a function to read in the artist data, then pull each artist ID, which was then inputted into the `get_artist_top_tracks()`. This function required providing the country's ISO code -- for example Mexico's ISO code is "MX". So, we created 16 datasets using the function, one for rap and one for country for each market (2 x 8). Each dataset contains around 200 songs. The reason they do not contain exactly 200 songs is that the top artists tend to work with one another, so one artists most popular song might also be another artist's most popular song. So we removed duplicate songs so as to not skew the data analysis. After we created the 16 datasets, we used `rbind` to bind them together and create our main dataset, which we used for most of the plots. 
+
+This dataset includes information on each track and its artist -- such as its popularity, release date, album name, its position in the album, whether it was released as a single or part of an album and more. 
+
+The function below is included for explanation purposes. First, it calls the top rap artists in a given market. Then, it iterates through that dataset and pulls each `artist ID`. The `artist ID` is inputted into the `get_artist_top_tracks()` function to pull that artist's most popular songs. Then, the result is a dataset for a given market with around 200 rap songs popular in a market, such as Ghana, Mexico, etc.
+
+````md
+
+rap_toptracks = function(countrycode){
+  rap = get_genre_artists(genre = "rap",
+                          market = countrycode)
+  for(i in 1:nrow(rap)){
+    rapid = rap$id[i]
+    artist_top_tracks = get_artist_top_tracks(rapid,
+                                              market = countrycode)
+    if(i ==1){
+      rap_topartist_toptracks = artist_top_tracks
+    }
+    else{
+      rap_topartist_toptracks =  rbind(rap_topartist_toptracks,artist_top_tracks)
+    }
+    
+  }
+  
+````
+
+
+As will be discussed more later, Korea did not output any songs when we used the genre name "rap", therefore we had to use "k-rap" to get the most popular rappers in Korea.
+
+
+After cleaning, tidying, and transforming our data, we exported our datasets into csv files so that the data would not change and be different to our interactive plot. As a result, our data is current up until 4 May, 2022. We have stored these clean datasets in `docs/`. 
+
+
+The Spotify data omits certain data which would be very helpful in this analysis and other explorations. For example, we lack detailed information on the artists - where they were born, their record labels, their nationality, gender, age,  etc. Moreover, the Spotify API provides only very high level information on tracks and artists -- for example we are not able to access data on the number of followers or listens by country. Interestingly, some of this data is available on the artist's Spotify profile, but it is not accessible via the API. Another major limitation of this data is that we do not get any insight on the listeners' demographics -- for example, their age would be very helpful in finding trends. Another feature that would have been helpful is the language of the music -- for example, just because an artist is popular in Mexico does not necessarily mean the music is in Spanish. 
+
+
+
+
+
+
+
+

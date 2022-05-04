@@ -23,7 +23,7 @@
 <meta name="author" content="Sebastian Carter &amp; Yinda Qian" />
 
 
-<meta name="date" content="2022-05-03" />
+<meta name="date" content="2022-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -184,15 +184,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>After using these functions, we have a few main datasets. The rap and country datasets have around 1600 rows each and each row is a different song. Within these datasets, we have 200 songs for 8 countries, i.e. the top rappers and country artist’s top songs.</p>
 <p>We chose 8 different markets to explore and we aimed to cover a variety of languages, regions and cultures. We chose USA, Great Britain, Mexico, India, Japan, Korea, France, and Ghana. We were limited to countries that have Spotify of course, so that is why China was not included. Moreover, we picked Ghana because, as far as African countries go, Spotify is popular there. And we picked Mexico for a similar reason.</p>
 <p>As stated earlier, the API does not provide historical data, which would have been useful in our analysis. Other than this shortcoming, there are no known problems with this data. Of course, when using the Spotify data for analysis, one must be aware that many metrics are the results of Spotify’s proprietary algorithms.</p>
+<p>Below is a handful of the variables that Spotify provides for each track/artist:</p>
+<ul>
+<li>Audio Features
+<ul>
+<li><code>acousticness</code>
+<ul>
+<li>measure from 0 to 1 of how acoustic a track is</li>
+</ul></li>
+<li><code>danceability</code>
+<ul>
+<li>measure of how suitable a track is for dancing to</li>
+<li>relies on factors such as tempo and beat strength</li>
+<li>0 is not danceable, 1 is danceable</li>
+</ul></li>
+<li><code>energy</code>
+<ul>
+<li>measure from 0 to 1</li>
+<li>energetic tracks are loud, fast, noisy</li>
+</ul></li>
+<li><code>instrumentalness</code>
+<ul>
+<li>proportional to the % of track that contains vocals</li>
+</ul></li>
+<li><code>valence</code>
+<ul>
+<li>describes the “positiveness” of a track</li>
+</ul></li>
+</ul></li>
+<li>Track Features
+<ul>
+<li><code>release date</code></li>
+<li><code>album.type</code>
+<ul>
+<li>how the song was released</li>
+<li>e.g. part of an album, as a single, etc</li>
+</ul></li>
+<li><code>explicit</code>
+<ul>
+<li>logical variable</li>
+<li>does the song contain explicit language</li>
+</ul></li>
+<li><code>duration</code>
+<ul>
+<li>length of a track in milliseconds</li>
+</ul></li>
+<li><code>restrictions</code>
+<ul>
+<li>logical variable</li>
+<li>denotes whether a track is subject to restrictions</li>
+</ul></li>
+</ul></li>
+<li>Artist Features
+<ul>
+<li><code>popularity</code>
+<ul>
+<li>measured fromo 0 to 100 (least to most popular)</li>
+<li>factors in the popularity of the artist’s discography</li>
+<li>uses listening history as well as how recent those listens are</li>
+</ul></li>
+<li><code>followers</code>
+<ul>
+<li>total number of Spotify followers</li>
+</ul></li>
+</ul></li>
+</ul>
 <p>For a peak into the data, see below the first five tracks in our main dataset.</p>
-<pre><code>##                                                                                                                                                                                                  artists
-## 1 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 2 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 3 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-##   disc_number duration_ms explicit
-## 1           1      120026     TRUE
-## 2           1      110886     TRUE
-## 3           1      119133     TRUE
+<pre><code>##   X disc_number duration_ms explicit
+## 1 1           1      120026     TRUE
+## 2 2           1      110886     TRUE
+## 3 3           1      119133     TRUE
 ##                                                       href
 ## 1 https://api.spotify.com/v1/tracks/5TXDeTFVRVY7Cvt0Dw4vWW
 ## 2 https://api.spotify.com/v1/tracks/2ZRo7axmMPeSVUvDbGkJah
@@ -209,30 +270,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1            5 track spotify:track:5TXDeTFVRVY7Cvt0Dw4vWW            album
 ## 2           16 track spotify:track:2ZRo7axmMPeSVUvDbGkJah            album
 ## 3            2 track spotify:track:7m9OqQk4RVRkw9JJdeAw96            album
-##                                                                                                                                                                                            album.artists
-## 1 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 2 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
-## 3 https://api.spotify.com/v1/artists/15UsOTVnJzReFVN1VCnxy4, 15UsOTVnJzReFVN1VCnxy4, XXXTENTACION, artist, spotify:artist:15UsOTVnJzReFVN1VCnxy4, https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
 ##                                                 album.href
 ## 1 https://api.spotify.com/v1/albums/5VdyJkLe3yvOs0l4xXbWp0
 ## 2 https://api.spotify.com/v1/albums/2Ti79nwTsont5ZHfdxIzAm
 ## 3 https://api.spotify.com/v1/albums/5VdyJkLe3yvOs0l4xXbWp0
-##                 album.id
-## 1 5VdyJkLe3yvOs0l4xXbWp0
-## 2 2Ti79nwTsont5ZHfdxIzAm
-## 3 5VdyJkLe3yvOs0l4xXbWp0
-##                                                                                                                                                                                                                       album.images
-## 1 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00001e02203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00004851203c89bd4391468eea4cc3f5, 640, 300, 64
-## 2 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273806c160566580d6335d1f16c, https://i.scdn.co/image/ab67616d00001e02806c160566580d6335d1f16c, https://i.scdn.co/image/ab67616d00004851806c160566580d6335d1f16c, 640, 300, 64
-## 3 640, 300, 64, https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00001e02203c89bd4391468eea4cc3f5, https://i.scdn.co/image/ab67616d00004851203c89bd4391468eea4cc3f5, 640, 300, 64
-##   album.name album.release_date album.release_date_precision album.total_tracks
-## 1         17         2017-08-25                          day                 11
-## 2          ?         2018-03-16                          day                 18
-## 3         17         2017-08-25                          day                 11
-##   album.type                            album.uri
-## 1      album spotify:album:5VdyJkLe3yvOs0l4xXbWp0
-## 2      album spotify:album:2Ti79nwTsont5ZHfdxIzAm
-## 3      album spotify:album:5VdyJkLe3yvOs0l4xXbWp0
+##                 album.id album.name album.release_date
+## 1 5VdyJkLe3yvOs0l4xXbWp0         17         2017-08-25
+## 2 2Ti79nwTsont5ZHfdxIzAm          ?         2018-03-16
+## 3 5VdyJkLe3yvOs0l4xXbWp0         17         2017-08-25
+##   album.release_date_precision album.total_tracks album.type
+## 1                          day                 11      album
+## 2                          day                 18      album
+## 3                          day                 11      album
+##                              album.uri
+## 1 spotify:album:5VdyJkLe3yvOs0l4xXbWp0
+## 2 spotify:album:2Ti79nwTsont5ZHfdxIzAm
+## 3 spotify:album:5VdyJkLe3yvOs0l4xXbWp0
 ##                             album.external_urls.spotify external_ids.isrc
 ## 1 https://open.spotify.com/album/5VdyJkLe3yvOs0l4xXbWp0      USUYG1156895
 ## 2 https://open.spotify.com/album/2Ti79nwTsont5ZHfdxIzAm      USUG11800447

@@ -1,0 +1,163 @@
+"","name","popularity","type","uri","external_urls.spotify","followers.href","followers.total","genre","based","country","local","localprop"
+"1","Jul",84,"artist","spotify:artist:3IW7ScrzXmPvZhB27hmfgy","https://open.spotify.com/artist/3IW7ScrzXmPvZhB27hmfgy",NA,5254889,"rap","France","FR",TRUE,0.9
+"2","Damso",81,"artist","spotify:artist:2UwqpfQtNuhBwviIC0f2ie","https://open.spotify.com/artist/2UwqpfQtNuhBwviIC0f2ie",NA,3557933,"rap","France","FR",TRUE,0.9
+"3","Naps",78,"artist","spotify:artist:6W5uA6CNMf3hd2j4a2XWCx","https://open.spotify.com/artist/6W5uA6CNMf3hd2j4a2XWCx",NA,1842185,"rap","France","FR",TRUE,0.9
+"4","Orelsan",76,"artist","spotify:artist:4FpJcNgOvIpSBeJgRg3OfN","https://open.spotify.com/artist/4FpJcNgOvIpSBeJgRg3OfN",NA,1755566,"rap","France","FR",TRUE,0.9
+"5","Gazo",77,"artist","spotify:artist:5gqmbbfjcikQBzPB5Hv13I","https://open.spotify.com/artist/5gqmbbfjcikQBzPB5Hv13I",NA,403087,"rap","France","FR",TRUE,0.9
+"6","Nekfeu",76,"artist","spotify:artist:4LXBc13z5EWsc5N32bLxfH","https://open.spotify.com/artist/4LXBc13z5EWsc5N32bLxfH",NA,2114887,"rap","France","FR",TRUE,0.9
+"7","Djadja & Dinaz",74,"artist","spotify:artist:5hREZP0zTQbTLkZ2M8RS4v","https://open.spotify.com/artist/5hREZP0zTQbTLkZ2M8RS4v",NA,1832710,"rap","France","FR",TRUE,0.9
+"8","PLK",76,"artist","spotify:artist:3DCWeG2J1fZeu0Oe6i5Q6m","https://open.spotify.com/artist/3DCWeG2J1fZeu0Oe6i5Q6m",NA,1094769,"rap","France","FR",TRUE,0.9
+"9","SCH",75,"artist","spotify:artist:2kXKa3aAFngGz2P4GjG5w2","https://open.spotify.com/artist/2kXKa3aAFngGz2P4GjG5w2",NA,1564211,"rap","France","FR",TRUE,0.9
+"10","Josman",74,"artist","spotify:artist:6dbdXbyAWk2qx8Qttw0knR","https://open.spotify.com/artist/6dbdXbyAWk2qx8Qttw0knR",NA,525602,"rap","France","FR",TRUE,0.9
+"11","Koba LaD",74,"artist","spotify:artist:1q7T9rFQ2a2ukA1PU51fo3","https://open.spotify.com/artist/1q7T9rFQ2a2ukA1PU51fo3",NA,2480178,"rap","France","FR",TRUE,0.9
+"12","Booba",73,"artist","spotify:artist:58wXmynHaAWI5hwlPZP3qL","https://open.spotify.com/artist/58wXmynHaAWI5hwlPZP3qL",NA,2422037,"rap","France","FR",TRUE,0.9
+"13","Niska",74,"artist","spotify:artist:7CUFPNi1TU8RowpnFRSsZV","https://open.spotify.com/artist/7CUFPNi1TU8RowpnFRSsZV",NA,4155154,"rap","France","FR",TRUE,0.9
+"14","Maes",73,"artist","spotify:artist:6L34dW6SKMSDaGIfYDU19j","https://open.spotify.com/artist/6L34dW6SKMSDaGIfYDU19j",NA,1950612,"rap","France","FR",TRUE,0.9
+"15","Vald",72,"artist","spotify:artist:3CnCGFxXbOA8bAK54jR8js","https://open.spotify.com/artist/3CnCGFxXbOA8bAK54jR8js",NA,1136537,"rap","France","FR",TRUE,0.9
+"16","Soolking",74,"artist","spotify:artist:0GgY7hjMoGDsX8ZDe2mwds","https://open.spotify.com/artist/0GgY7hjMoGDsX8ZDe2mwds",NA,3155059,"rap","Algeria","FR",FALSE,0.9
+"17","Disiz",71,"artist","spotify:artist:7rz6ZZErn5YFDteXKhyf3g","https://open.spotify.com/artist/7rz6ZZErn5YFDteXKhyf3g",NA,229200,"rap","France","FR",TRUE,0.9
+"18","Green Montana",71,"artist","spotify:artist:0zhMujl1yB8pkB023Qm4Y2","https://open.spotify.com/artist/0zhMujl1yB8pkB023Qm4Y2",NA,66248,"rap","France","FR",TRUE,0.9
+"19","GIMS",75,"artist","spotify:artist:0GOx72r5AAEKRGQFn3xqXK","https://open.spotify.com/artist/0GOx72r5AAEKRGQFn3xqXK",NA,3413728,"rap","France","FR",TRUE,0.9
+"20","Drake",99,"artist","spotify:artist:3TVXtAsR1Inumwj472S9r4","https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",NA,63042263,"rap","Canada","FR",FALSE,0.9
+"21","Drake",98,"artist","spotify:artist:3TVXtAsR1Inumwj472S9r4","https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",NA,63015703,"rap","Canada","GB",FALSE,0.05
+"22","Kanye West",96,"artist","spotify:artist:5K4W6rqBFWDnAN6FQUkS6x","https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",NA,17121695,"rap","US","GB",FALSE,0.05
+"23","Eminem",95,"artist","spotify:artist:7dGJo4pcD2V6oG8kP0tJRR","https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",NA,55104252,"rap","US","GB",FALSE,0.05
+"24","Juice WRLD",95,"artist","spotify:artist:4MCBfE4596Uoi2O4DtmEMz","https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz",NA,23713205,"rap","US","GB",FALSE,0.05
+"25","Rihanna",92,"artist","spotify:artist:5pKCCKE2ajJHZ9KAiaK11H","https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H",NA,48354630,"rap","US","GB",FALSE,0.05
+"26","Future",93,"artist","spotify:artist:1RyvyyTE3xzB2ZywiAwp0i","https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i",NA,11430499,"rap","US","GB",FALSE,0.05
+"27","Chris Brown",90,"artist","spotify:artist:7bXgB6jMjp9ATFy66eO08Z","https://open.spotify.com/artist/7bXgB6jMjp9ATFy66eO08Z",NA,15829502,"rap","US","GB",FALSE,0.05
+"28","Post Malone",91,"artist","spotify:artist:246dkjvS1zLTtiykXe5h60","https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",NA,36719803,"rap","US","GB",FALSE,0.05
+"29","Lil Baby",93,"artist","spotify:artist:5f7VJjfbwm532GiveGC0ZK","https://open.spotify.com/artist/5f7VJjfbwm532GiveGC0ZK",NA,10324012,"rap","US","GB",FALSE,0.05
+"30","David Guetta",91,"artist","spotify:artist:1Cs0zKBU1kc0i8ypK3B9ai","https://open.spotify.com/artist/1Cs0zKBU1kc0i8ypK3B9ai",NA,24163377,"rap","France","GB",FALSE,0.05
+"31","Gunna",91,"artist","spotify:artist:2hlmm7s2ICUX0LVIhVFlZQ","https://open.spotify.com/artist/2hlmm7s2ICUX0LVIhVFlZQ",NA,4233217,"rap","US","GB",FALSE,0.05
+"32","Kendrick Lamar",91,"artist","spotify:artist:2YZyLoL8N0Wb9xBt1NhZWg","https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",NA,19870455,"rap","US","GB",FALSE,0.05
+"33","Lil Wayne",91,"artist","spotify:artist:55Aa2cqylxrFIXC767Z865","https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865",NA,11981344,"rap","US","GB",FALSE,0.05
+"34","Jack Harlow",91,"artist","spotify:artist:2LIk90788K0zvyj2JJVwkJ","https://open.spotify.com/artist/2LIk90788K0zvyj2JJVwkJ",NA,1937125,"rap","US","GB",FALSE,0.05
+"35","Digga D",75,"artist","spotify:artist:57n1OF36WvtOeATY6WQ6iw","https://open.spotify.com/artist/57n1OF36WvtOeATY6WQ6iw",NA,479549,"rap","Great Britain","GB",TRUE,0.05
+"36","Polo G",90,"artist","spotify:artist:6AgTAQt8XS6jRWi4sX7w49","https://open.spotify.com/artist/6AgTAQt8XS6jRWi4sX7w49",NA,7370613,"rap","US","GB",FALSE,0.05
+"37","50 Cent",86,"artist","spotify:artist:3q7HBObVc0L8jNeTe5Gofh","https://open.spotify.com/artist/3q7HBObVc0L8jNeTe5Gofh",NA,8863009,"rap","US","GB",FALSE,0.05
+"38","Lil Durk",90,"artist","spotify:artist:3hcs9uc56yIGFCSy9leWe7","https://open.spotify.com/artist/3hcs9uc56yIGFCSy9leWe7",NA,3970091,"rap","US","GB",FALSE,0.05
+"39","Lil Tjay",87,"artist","spotify:artist:6jGMq4yGs7aQzuGsMgVgZR","https://open.spotify.com/artist/6jGMq4yGs7aQzuGsMgVgZR",NA,5013757,"rap","US","GB",FALSE,0.05
+"40","Young Thug",90,"artist","spotify:artist:50co4Is1HCEo8bhOyUWKpn","https://open.spotify.com/artist/50co4Is1HCEo8bhOyUWKpn",NA,7168677,"rap","US","GB",FALSE,0.05
+"41","Drake",98,"artist","spotify:artist:3TVXtAsR1Inumwj472S9r4","https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",NA,63015703,"rap","Canada","GH",FALSE,0
+"42","Kanye West",96,"artist","spotify:artist:5K4W6rqBFWDnAN6FQUkS6x","https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",NA,17121695,"rap","US","GH",FALSE,0
+"43","Juice WRLD",95,"artist","spotify:artist:4MCBfE4596Uoi2O4DtmEMz","https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz",NA,23713205,"rap","US","GH",FALSE,0
+"44","Eminem",95,"artist","spotify:artist:7dGJo4pcD2V6oG8kP0tJRR","https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",NA,55104252,"rap","US","GH",FALSE,0
+"45","Future",93,"artist","spotify:artist:1RyvyyTE3xzB2ZywiAwp0i","https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i",NA,11430499,"rap","US","GH",FALSE,0
+"46","Post Malone",91,"artist","spotify:artist:246dkjvS1zLTtiykXe5h60","https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",NA,36719803,"rap","US","GH",FALSE,0
+"47","Lil Baby",93,"artist","spotify:artist:5f7VJjfbwm532GiveGC0ZK","https://open.spotify.com/artist/5f7VJjfbwm532GiveGC0ZK",NA,10324012,"rap","US","GH",FALSE,0
+"48","Lil Wayne",91,"artist","spotify:artist:55Aa2cqylxrFIXC767Z865","https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865",NA,11981344,"rap","US","GH",FALSE,0
+"49","Gunna",91,"artist","spotify:artist:2hlmm7s2ICUX0LVIhVFlZQ","https://open.spotify.com/artist/2hlmm7s2ICUX0LVIhVFlZQ",NA,4233217,"rap","US","GH",FALSE,0
+"50","Lil Uzi Vert",90,"artist","spotify:artist:4O15NlyKLIASxsJ0PrXPfz","https://open.spotify.com/artist/4O15NlyKLIASxsJ0PrXPfz",NA,13239297,"rap","US","GH",FALSE,0
+"51","Travis Scott",92,"artist","spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY","https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY",NA,20430195,"rap","US","GH",FALSE,0
+"52","Kendrick Lamar",91,"artist","spotify:artist:2YZyLoL8N0Wb9xBt1NhZWg","https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",NA,19870455,"rap","US","GH",FALSE,0
+"53","XXXTENTACION",92,"artist","spotify:artist:15UsOTVnJzReFVN1VCnxy4","https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4",NA,36130684,"rap","US","GH",FALSE,0
+"54","Young Thug",90,"artist","spotify:artist:50co4Is1HCEo8bhOyUWKpn","https://open.spotify.com/artist/50co4Is1HCEo8bhOyUWKpn",NA,7168677,"rap","US","GH",FALSE,0
+"55","Chris Brown",90,"artist","spotify:artist:7bXgB6jMjp9ATFy66eO08Z","https://open.spotify.com/artist/7bXgB6jMjp9ATFy66eO08Z",NA,15829502,"rap","US","GH",FALSE,0
+"56","Rihanna",92,"artist","spotify:artist:5pKCCKE2ajJHZ9KAiaK11H","https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H",NA,48354630,"rap","US","GH",FALSE,0
+"57","Jack Harlow",91,"artist","spotify:artist:2LIk90788K0zvyj2JJVwkJ","https://open.spotify.com/artist/2LIk90788K0zvyj2JJVwkJ",NA,1937125,"rap","US","GH",FALSE,0
+"58","Tyler, The Creator",90,"artist","spotify:artist:4V8LLVI7PbaPR0K2TGSxFF","https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF",NA,8632307,"rap","US","GH",FALSE,0
+"59","Lil Durk",90,"artist","spotify:artist:3hcs9uc56yIGFCSy9leWe7","https://open.spotify.com/artist/3hcs9uc56yIGFCSy9leWe7",NA,3970091,"rap","US","GH",FALSE,0
+"60","Polo G",90,"artist","spotify:artist:6AgTAQt8XS6jRWi4sX7w49","https://open.spotify.com/artist/6AgTAQt8XS6jRWi4sX7w49",NA,7370613,"rap","US","GH",FALSE,0
+"61","XXXTENTACION",92,"artist","spotify:artist:15UsOTVnJzReFVN1VCnxy4","https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4",NA,36130684,"rap","US","IN",FALSE,0
+"62","Juice WRLD",95,"artist","spotify:artist:4MCBfE4596Uoi2O4DtmEMz","https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz",NA,23713205,"rap","US","IN",FALSE,0
+"63","Post Malone",91,"artist","spotify:artist:246dkjvS1zLTtiykXe5h60","https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",NA,36719803,"rap","US","IN",FALSE,0
+"64","Eminem",95,"artist","spotify:artist:7dGJo4pcD2V6oG8kP0tJRR","https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",NA,55104252,"rap","US","IN",FALSE,0
+"65","Drake",98,"artist","spotify:artist:3TVXtAsR1Inumwj472S9r4","https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",NA,63015703,"rap","Canada","IN",FALSE,0
+"66","Sean Paul",85,"artist","spotify:artist:3Isy6kedDrgPYoTS1dazA9","https://open.spotify.com/artist/3Isy6kedDrgPYoTS1dazA9",NA,3852655,"rap","Jamaica","IN",FALSE,0
+"67","Jack Harlow",91,"artist","spotify:artist:2LIk90788K0zvyj2JJVwkJ","https://open.spotify.com/artist/2LIk90788K0zvyj2JJVwkJ",NA,1937125,"rap","US","IN",FALSE,0
+"68","Travis Scott",92,"artist","spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY","https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY",NA,20430195,"rap","US","IN",FALSE,0
+"69","Jason Derulo",85,"artist","spotify:artist:07YZf4WDAMNwqr4jfgOZ8y","https://open.spotify.com/artist/07YZf4WDAMNwqr4jfgOZ8y",NA,11081187,"rap","US","IN",FALSE,0
+"70","Kanye West",96,"artist","spotify:artist:5K4W6rqBFWDnAN6FQUkS6x","https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",NA,17121695,"rap","US","IN",FALSE,0
+"71","Cardi B",86,"artist","spotify:artist:4kYSro6naA4h99UJvo89HB","https://open.spotify.com/artist/4kYSro6naA4h99UJvo89HB",NA,19853013,"rap","US","IN",FALSE,0
+"72","DJ Snake",82,"artist","spotify:artist:540vIaP2JwjQb9dm3aArA4","https://open.spotify.com/artist/540vIaP2JwjQb9dm3aArA4",NA,7763742,"rap","France","IN",FALSE,0
+"73","Wiz Khalifa",88,"artist","spotify:artist:137W8MRPWKqSmrBGDBFSop","https://open.spotify.com/artist/137W8MRPWKqSmrBGDBFSop",NA,10536137,"rap","US","IN",FALSE,0
+"74","blackbear",86,"artist","spotify:artist:2cFrymmkijnjDg9SS92EPM","https://open.spotify.com/artist/2cFrymmkijnjDg9SS92EPM",NA,4676365,"rap","US","IN",FALSE,0
+"75","Future",93,"artist","spotify:artist:1RyvyyTE3xzB2ZywiAwp0i","https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i",NA,11430499,"rap","US","IN",FALSE,0
+"76","Nicki Minaj",90,"artist","spotify:artist:0hCNtLu0JehylgoiP8L4Gh","https://open.spotify.com/artist/0hCNtLu0JehylgoiP8L4Gh",NA,24886732,"rap","US","IN",FALSE,0
+"77","David Guetta",91,"artist","spotify:artist:1Cs0zKBU1kc0i8ypK3B9ai","https://open.spotify.com/artist/1Cs0zKBU1kc0i8ypK3B9ai",NA,24163377,"rap","France","IN",FALSE,0
+"78","Young Thug",90,"artist","spotify:artist:50co4Is1HCEo8bhOyUWKpn","https://open.spotify.com/artist/50co4Is1HCEo8bhOyUWKpn",NA,7168677,"rap","US","IN",FALSE,0
+"79","iann dior",83,"artist","spotify:artist:6ASri4ePR7RlsvIQgWPJpS","https://open.spotify.com/artist/6ASri4ePR7RlsvIQgWPJpS",NA,1562285,"rap","US","IN",FALSE,0
+"80","Lil Wayne",91,"artist","spotify:artist:55Aa2cqylxrFIXC767Z865","https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865",NA,11981344,"rap","US","IN",FALSE,0
+"81","CHANMINA",65,"artist","spotify:artist:2vjeuQwzSP5ErC1S41gONX","https://open.spotify.com/artist/2vjeuQwzSP5ErC1S41gONX",NA,439790,"rap","Japan","JP",TRUE,0.75
+"82","JP THE WAVY",63,"artist","spotify:artist:0hBYSjDjcAaAuSZcpN8jk9","https://open.spotify.com/artist/0hBYSjDjcAaAuSZcpN8jk9",NA,125448,"rap","Japan","JP",TRUE,0.75
+"83","¥ellow Bucks",61,"artist","spotify:artist:1Fe6FA7A57suR2KAaERpqH","https://open.spotify.com/artist/1Fe6FA7A57suR2KAaERpqH",NA,123322,"rap","Japan","JP",TRUE,0.75
+"84","Awich",60,"artist","spotify:artist:0FnDCrmcQT8qz5TEsZIYw5","https://open.spotify.com/artist/0FnDCrmcQT8qz5TEsZIYw5",NA,105929,"rap","Japan","JP",TRUE,0.75
+"85","LEX",60,"artist","spotify:artist:2KpK4apOMD6evPHoPggSVF","https://open.spotify.com/artist/2KpK4apOMD6evPHoPggSVF",NA,75959,"rap","Japan","JP",TRUE,0.75
+"86","AK-69",59,"artist","spotify:artist:4Wet9Sqa5LrEjBeV4k6edh","https://open.spotify.com/artist/4Wet9Sqa5LrEjBeV4k6edh",NA,298207,"rap","Japan","JP",TRUE,0.75
+"87","BLOOM VASE",58,"artist","spotify:artist:3jpPlA4ASvE9TlObazOIee","https://open.spotify.com/artist/3jpPlA4ASvE9TlObazOIee",NA,259775,"rap","Japan","JP",TRUE,0.75
+"88","YZERR",56,"artist","spotify:artist:7z8eFxohsIg2Tu5evbNXXo","https://open.spotify.com/artist/7z8eFxohsIg2Tu5evbNXXo",NA,12199,"rap","Japan","JP",TRUE,0.75
+"89","BAD HOP",56,"artist","spotify:artist:3FCZbxRcaSgYfklG2HCFh2","https://open.spotify.com/artist/3FCZbxRcaSgYfklG2HCFh2",NA,164892,"rap","Japan","JP",TRUE,0.75
+"90","Wiz Khalifa",88,"artist","spotify:artist:137W8MRPWKqSmrBGDBFSop","https://open.spotify.com/artist/137W8MRPWKqSmrBGDBFSop",NA,10536137,"rap","US","JP",FALSE,0.75
+"91","OZworld",55,"artist","spotify:artist:34tJ8UnaAbWcrug3Nym7ZO","https://open.spotify.com/artist/34tJ8UnaAbWcrug3Nym7ZO",NA,56522,"rap","Japan","JP",TRUE,0.75
+"92","David Guetta",91,"artist","spotify:artist:1Cs0zKBU1kc0i8ypK3B9ai","https://open.spotify.com/artist/1Cs0zKBU1kc0i8ypK3B9ai",NA,24163377,"rap","France","JP",FALSE,0.75
+"93","tubakiii",55,"artist","spotify:artist:2Bi1XtdmndNK6V2nlpI2A1","https://open.spotify.com/artist/2Bi1XtdmndNK6V2nlpI2A1",NA,97254,"rap","Japan","JP",TRUE,0.75
+"94","Chris Brown",90,"artist","spotify:artist:7bXgB6jMjp9ATFy66eO08Z","https://open.spotify.com/artist/7bXgB6jMjp9ATFy66eO08Z",NA,15829502,"rap","US","JP",FALSE,0.75
+"95","Eminem",95,"artist","spotify:artist:7dGJo4pcD2V6oG8kP0tJRR","https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",NA,55104252,"rap","US","JP",FALSE,0.75
+"96","KM",54,"artist","spotify:artist:2Nz5XwOa02deTyyS2vw5Wa","https://open.spotify.com/artist/2Nz5XwOa02deTyyS2vw5Wa",NA,15193,"rap","Japan","JP",TRUE,0.75
+"97","SALU",54,"artist","spotify:artist:2AwGvrbcvOSx5HDwc4OQE3","https://open.spotify.com/artist/2AwGvrbcvOSx5HDwc4OQE3",NA,134283,"rap","Japan","JP",TRUE,0.75
+"98","Zedd",80,"artist","spotify:artist:2qxJFvFYMEDqd7ui6kSAcq","https://open.spotify.com/artist/2qxJFvFYMEDqd7ui6kSAcq",NA,5741265,"rap","Germany","JP",FALSE,0.75
+"99","KEIJU",54,"artist","spotify:artist:7K3bqkZs0SVUS9K13bnwHL","https://open.spotify.com/artist/7K3bqkZs0SVUS9K13bnwHL",NA,33930,"rap","Japan","JP",TRUE,0.75
+"100","sloppy dim",54,"artist","spotify:artist:6uMBnBtHeJmhc2tx1vDCae","https://open.spotify.com/artist/6uMBnBtHeJmhc2tx1vDCae",NA,147346,"rap","Japan","JP",TRUE,0.75
+"101","PSY",73,"artist","spotify:artist:2dd5mrQZvg6SmahdgVKDzh","https://open.spotify.com/artist/2dd5mrQZvg6SmahdgVKDzh",NA,1299144,"K-rap","Korea","KR",TRUE,0.954545454545455
+"102","Jay Park",73,"artist","spotify:artist:4XDi67ZENZcbfKnvMnTYsI","https://open.spotify.com/artist/4XDi67ZENZcbfKnvMnTYsI",NA,1713938,"K-rap","US","KR",FALSE,0.954545454545455
+"103","Agust D",72,"artist","spotify:artist:5RmQ8k4l3HZ8JoPb4mNsML","https://open.spotify.com/artist/5RmQ8k4l3HZ8JoPb4mNsML",NA,8417945,"K-rap","Korea","KR",TRUE,0.954545454545455
+"104","RM",70,"artist","spotify:artist:2auC28zjQyVTsiZKNgPRGs","https://open.spotify.com/artist/2auC28zjQyVTsiZKNgPRGs",NA,9404916,"K-rap","Korea","KR",TRUE,0.954545454545455
+"105","j-hope",67,"artist","spotify:artist:0b1sIQumIAsNbqAoIClSpy","https://open.spotify.com/artist/0b1sIQumIAsNbqAoIClSpy",NA,9944922,"K-rap","Korea","KR",TRUE,0.954545454545455
+"106","Loco",66,"artist","spotify:artist:2e4G04F77jxVuDYo44TCSm","https://open.spotify.com/artist/2e4G04F77jxVuDYo44TCSm",NA,313601,"K-rap","Korea","KR",TRUE,0.954545454545455
+"107","G-DRAGON",66,"artist","spotify:artist:30b9WulBM8sFuBo17nNq9c","https://open.spotify.com/artist/30b9WulBM8sFuBo17nNq9c",NA,2687157,"K-rap","Korea","KR",TRUE,0.954545454545455
+"108","DPR IAN",65,"artist","spotify:artist:2o8gT0fQmFxGNbowbdgeZe","https://open.spotify.com/artist/2o8gT0fQmFxGNbowbdgeZe",NA,420683,"K-rap","Korea","KR",TRUE,0.954545454545455
+"109","pH-1",65,"artist","spotify:artist:2u7CP5T30c8ctenzXgEV1W","https://open.spotify.com/artist/2u7CP5T30c8ctenzXgEV1W",NA,274592,"K-rap","Korea","KR",TRUE,0.954545454545455
+"110","ZICO",64,"artist","spotify:artist:4XpUIb8uuNlIWVKmgKZXC0","https://open.spotify.com/artist/4XpUIb8uuNlIWVKmgKZXC0",NA,1179075,"K-rap","Korea","KR",TRUE,0.954545454545455
+"111","CHANGMO",64,"artist","spotify:artist:3hvinNZRzTLoREmqFiKr1b","https://open.spotify.com/artist/3hvinNZRzTLoREmqFiKr1b",NA,295733,"K-rap","Korea","KR",TRUE,0.954545454545455
+"112","BE'O",63,"artist","spotify:artist:5NUVwRESNqYBUTRbiATjy7","https://open.spotify.com/artist/5NUVwRESNqYBUTRbiATjy7",NA,107734,"K-rap","Korea","KR",TRUE,0.954545454545455
+"113","Epik High",63,"artist","spotify:artist:5snNHNlYT2UrtZo5HCJkiw","https://open.spotify.com/artist/5snNHNlYT2UrtZo5HCJkiw",NA,620311,"K-rap","Korea","KR",TRUE,0.954545454545455
+"114","Sik-K",62,"artist","spotify:artist:5DIi2JWfQPTKffaVBlIYRn","https://open.spotify.com/artist/5DIi2JWfQPTKffaVBlIYRn",NA,396902,"K-rap","Korea","KR",TRUE,0.954545454545455
+"115","GIRIBOY",61,"artist","spotify:artist:2MtHuR0W2idZdF7x4wddqq","https://open.spotify.com/artist/2MtHuR0W2idZdF7x4wddqq",NA,290448,"K-rap","Korea","KR",TRUE,0.954545454545455
+"116","MINO",61,"artist","spotify:artist:3ytV7vc4ZuwGgwaOuWvkk8","https://open.spotify.com/artist/3ytV7vc4ZuwGgwaOuWvkk8",NA,967861,"K-rap","Korea","KR",TRUE,0.954545454545455
+"117","Zion.T",61,"artist","spotify:artist:5HenzRvMtSrgtvU16XAoby","https://open.spotify.com/artist/5HenzRvMtSrgtvU16XAoby",NA,539790,"K-rap","Korea","KR",TRUE,0.954545454545455
+"118","GRAY",61,"artist","spotify:artist:3kPEBSt7qgVoRZSbIXMr7W","https://open.spotify.com/artist/3kPEBSt7qgVoRZSbIXMr7W",NA,228451,"K-rap","Korea","KR",TRUE,0.954545454545455
+"119","Beenzino",61,"artist","spotify:artist:7IrDIIq3j04exsiF3Z7CPg","https://open.spotify.com/artist/7IrDIIq3j04exsiF3Z7CPg",NA,191379,"K-rap","Korea","KR",TRUE,0.954545454545455
+"120","ASH ISLAND",60,"artist","spotify:artist:7IEhlwWQA7pCkEvzwwHehE","https://open.spotify.com/artist/7IEhlwWQA7pCkEvzwwHehE",NA,169365,"K-rap","Korea","KR",TRUE,0.954545454545455
+"121","lIlBOI",59,"artist","spotify:artist:25wMXkplvEHJpJHX8A6Ved","https://open.spotify.com/artist/25wMXkplvEHJpJHX8A6Ved",NA,44638,"K-rap","Korea","KR",TRUE,0.954545454545455
+"122","Gaeko",59,"artist","spotify:artist:0tkHE1pQ5ZCgQb8WZ0ba79","https://open.spotify.com/artist/0tkHE1pQ5ZCgQb8WZ0ba79",NA,103485,"K-rap","Korea","KR",TRUE,0.954545454545455
+"123","Gera MX",82,"artist","spotify:artist:2hejA1Dkf8v8R0koF44FvW","https://open.spotify.com/artist/2hejA1Dkf8v8R0koF44FvW",NA,3087331,"rap","Mexico","MX",TRUE,0.4
+"124","Cartel De Santa",81,"artist","spotify:artist:07PdYoE4jVRF6Ut40GgVSP","https://open.spotify.com/artist/07PdYoE4jVRF6Ut40GgVSP",NA,10524911,"rap","Mexico","MX",TRUE,0.4
+"125","La Santa Grifa",77,"artist","spotify:artist:1oH2B8tcHn4Gpl2bmmyd4A","https://open.spotify.com/artist/1oH2B8tcHn4Gpl2bmmyd4A",NA,2088668,"rap","Mexico","MX",TRUE,0.4
+"126","Becky G",86,"artist","spotify:artist:4obzFoKoKRHIphyHzJ35G3","https://open.spotify.com/artist/4obzFoKoKRHIphyHzJ35G3",NA,11385793,"rap","US","MX",FALSE,0.4
+"127","Drake",98,"artist","spotify:artist:3TVXtAsR1Inumwj472S9r4","https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",NA,63015703,"rap","Canada","MX",FALSE,0.4
+"128","Charles Ans",74,"artist","spotify:artist:5lYeiQxUTcGKVgAuTqbTeL","https://open.spotify.com/artist/5lYeiQxUTcGKVgAuTqbTeL",NA,1112213,"rap","Mexico","MX",TRUE,0.4
+"129","Eminem",95,"artist","spotify:artist:7dGJo4pcD2V6oG8kP0tJRR","https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",NA,55104252,"rap","US","MX",FALSE,0.4
+"130","MC Davo",73,"artist","spotify:artist:3TGeuw7OmACouH5JAKkX7I","https://open.spotify.com/artist/3TGeuw7OmACouH5JAKkX7I",NA,1884336,"rap","Mexico","MX",TRUE,0.4
+"131","Snoop Dogg",87,"artist","spotify:artist:7hJcb9fa4alzcOq3EaNPoG","https://open.spotify.com/artist/7hJcb9fa4alzcOq3EaNPoG",NA,8189692,"rap","US","MX",FALSE,0.4
+"132","Yoss Bones",73,"artist","spotify:artist:0SmgVe3giVHaJjGmIz8xA4","https://open.spotify.com/artist/0SmgVe3giVHaJjGmIz8xA4",NA,178999,"rap","Mexico","MX",TRUE,0.4
+"133","Post Malone",91,"artist","spotify:artist:246dkjvS1zLTtiykXe5h60","https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",NA,36719803,"rap","US","MX",FALSE,0.4
+"134","C-Kan",73,"artist","spotify:artist:1QhaqxeqF9sipS2gwbEKpu","https://open.spotify.com/artist/1QhaqxeqF9sipS2gwbEKpu",NA,1889637,"rap","Mexico","MX",TRUE,0.4
+"135","Kanye West",96,"artist","spotify:artist:5K4W6rqBFWDnAN6FQUkS6x","https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",NA,17121695,"rap","US","MX",FALSE,0.4
+"136","David Guetta",91,"artist","spotify:artist:1Cs0zKBU1kc0i8ypK3B9ai","https://open.spotify.com/artist/1Cs0zKBU1kc0i8ypK3B9ai",NA,24163377,"rap","France","MX",FALSE,0.4
+"137","Natti Natasha",81,"artist","spotify:artist:1GDbiv3spRmZ1XdM1jQbT7","https://open.spotify.com/artist/1GDbiv3spRmZ1XdM1jQbT7",NA,7714792,"rap","Dominican Republic","MX",FALSE,0.4
+"138","Rihanna",92,"artist","spotify:artist:5pKCCKE2ajJHZ9KAiaK11H","https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H",NA,48354630,"rap","US","MX",FALSE,0.4
+"139","Pitbull",87,"artist","spotify:artist:0TnOYISbd1XYRBk9myaseg","https://open.spotify.com/artist/0TnOYISbd1XYRBk9myaseg",NA,9267782,"rap","US","MX",FALSE,0.4
+"140","Millonario",70,"artist","spotify:artist:2N2aJ1SXQxMkhHD8C6fhYD","https://open.spotify.com/artist/2N2aJ1SXQxMkhHD8C6fhYD",NA,1077566,"rap","Mexico","MX",TRUE,0.4
+"141","Canserbero",75,"artist","spotify:artist:1wGIhYkKWSq4yACtTkCkSX","https://open.spotify.com/artist/1wGIhYkKWSq4yACtTkCkSX",NA,4419861,"rap","Venezuela","MX",FALSE,0.4
+"142","El Alfa",81,"artist","spotify:artist:2oQX8QiMXOyuqbcZEFsZfm","https://open.spotify.com/artist/2oQX8QiMXOyuqbcZEFsZfm",NA,2170116,"rap","Dominican Republic","MX",FALSE,0.4
+"143","Drake",98,"artist","spotify:artist:3TVXtAsR1Inumwj472S9r4","https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",NA,63015703,"rap","Canada","US",FALSE,0.95
+"144","Kanye West",96,"artist","spotify:artist:5K4W6rqBFWDnAN6FQUkS6x","https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",NA,17121695,"rap","US","US",TRUE,0.95
+"145","Juice WRLD",95,"artist","spotify:artist:4MCBfE4596Uoi2O4DtmEMz","https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz",NA,23713205,"rap","US","US",TRUE,0.95
+"146","Future",93,"artist","spotify:artist:1RyvyyTE3xzB2ZywiAwp0i","https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i",NA,11430499,"rap","US","US",TRUE,0.95
+"147","Lil Uzi Vert",90,"artist","spotify:artist:4O15NlyKLIASxsJ0PrXPfz","https://open.spotify.com/artist/4O15NlyKLIASxsJ0PrXPfz",NA,13239297,"rap","US","US",TRUE,0.95
+"148","Lil Baby",93,"artist","spotify:artist:5f7VJjfbwm532GiveGC0ZK","https://open.spotify.com/artist/5f7VJjfbwm532GiveGC0ZK",NA,10324012,"rap","US","US",TRUE,0.95
+"149","Lil Wayne",91,"artist","spotify:artist:55Aa2cqylxrFIXC767Z865","https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865",NA,11981344,"rap","US","US",TRUE,0.95
+"150","Gunna",91,"artist","spotify:artist:2hlmm7s2ICUX0LVIhVFlZQ","https://open.spotify.com/artist/2hlmm7s2ICUX0LVIhVFlZQ",NA,4233217,"rap","US","US",TRUE,0.95
+"151","Lil Durk",90,"artist","spotify:artist:3hcs9uc56yIGFCSy9leWe7","https://open.spotify.com/artist/3hcs9uc56yIGFCSy9leWe7",NA,3970091,"rap","US","US",TRUE,0.95
+"152","Kendrick Lamar",91,"artist","spotify:artist:2YZyLoL8N0Wb9xBt1NhZWg","https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",NA,19870455,"rap","US","US",TRUE,0.95
+"153","Tyler, The Creator",90,"artist","spotify:artist:4V8LLVI7PbaPR0K2TGSxFF","https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF",NA,8632307,"rap","US","US",TRUE,0.95
+"154","Post Malone",91,"artist","spotify:artist:246dkjvS1zLTtiykXe5h60","https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",NA,36719803,"rap","US","US",TRUE,0.95
+"155","YoungBoy Never Broke Again",89,"artist","spotify:artist:7wlFDEWiM5OoIAt8RSli8b","https://open.spotify.com/artist/7wlFDEWiM5OoIAt8RSli8b",NA,8730937,"rap","US","US",TRUE,0.95
+"156","Young Thug",90,"artist","spotify:artist:50co4Is1HCEo8bhOyUWKpn","https://open.spotify.com/artist/50co4Is1HCEo8bhOyUWKpn",NA,7168677,"rap","US","US",TRUE,0.95
+"157","Polo G",90,"artist","spotify:artist:6AgTAQt8XS6jRWi4sX7w49","https://open.spotify.com/artist/6AgTAQt8XS6jRWi4sX7w49",NA,7370613,"rap","US","US",TRUE,0.95
+"158","Eminem",95,"artist","spotify:artist:7dGJo4pcD2V6oG8kP0tJRR","https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR",NA,55104252,"rap","US","US",TRUE,0.95
+"159","Travis Scott",92,"artist","spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY","https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY",NA,20430195,"rap","US","US",TRUE,0.95
+"160","Mac Miller",88,"artist","spotify:artist:4LLpKhyESsyAXpc4laK94U","https://open.spotify.com/artist/4LLpKhyESsyAXpc4laK94U",NA,7440031,"rap","US","US",TRUE,0.95
+"161","J. Cole",91,"artist","spotify:artist:6l3HvQ5sa6mXTsMTB19rO5","https://open.spotify.com/artist/6l3HvQ5sa6mXTsMTB19rO5",NA,16617760,"rap","US","US",TRUE,0.95
+"162","Trippie Redd",88,"artist","spotify:artist:6Xgp2XMz1fhVYe7i6yNAax","https://open.spotify.com/artist/6Xgp2XMz1fhVYe7i6yNAax",NA,7529108,"rap","US","US",TRUE,0.95

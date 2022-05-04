@@ -14,11 +14,68 @@ In this project we used the `SpotifyR` package to pull data from the API. `Spoti
     * This function was useful in getting the audio features of each track. Each track has audio data such as danceability, loudness, acousticness, energy, and more. 
 
 After using these functions, we have a few main datasets. The rap and country datasets have around 1600 rows each and each row is a different song. Within these datasets, we have 200 songs for 8 countries, i.e. the top rappers and country artist's top songs. 
+
+We chose 8 different markets to explore and we aimed to cover a variety of languages, regions and cultures. We chose USA, Great Britain, Mexico, India, Japan, Korea, France, and Ghana. We were limited to countries that have Spotify of course, so that is why China was not included. Moreover, we picked Ghana because, as far as African countries go, Spotify is popular there. And we picked Mexico for a similar reason.
     
-As stated earlier, the API does not provide historical data, which would have been useful in our analysis. Other than this shortcoming, there are no known problems with this data. Of course, when using the Spotify data for analysis, one must be cogniscent that many metrics are the results of Spotify's proprietary algorithms. 
+As stated earlier, the API does not provide historical data, which would have been useful in our analysis. Other than this shortcoming, there are no known problems with this data. Of course, when using the Spotify data for analysis, one must be aware that many metrics are the results of Spotify's proprietary algorithms. 
     
+Below is a handful of the variables that Spotify provides for each track/artist:
+
+* Audio Features
+  * `acousticness`
+    * measure from 0 to 1 of how acoustic a track is
+  * `danceability`
+    * measure of how suitable a track is for dancing to
+    * relies on factors such as tempo and beat strength
+    * 0 is not danceable, 1 is danceable
+  * `energy`
+    * measure from 0 to 1
+    * energetic tracks are loud, fast, noisy
+  * `instrumentalness`
+    * proportional to the % of track that contains vocals
+  * `valence`
+    * describes the "positiveness" of a track
+* Track Features
+  * `release date`
+  * `album.type`
+    * how the song was released
+    * e.g. part of an album, as a single, etc
+  * `explicit`
+    * logical variable
+    * does the song contain explicit language
+  * `duration`
+    * length of a track in milliseconds
+  * `restrictions`
+    * logical variable
+    * denotes whether a track is subject to restrictions
+* Artist Features
+  * `popularity`
+    * measured fromo 0 to 100 (least to most popular)
+    * factors in the popularity of the artist's discography
+    * uses listening history as well as how recent those listens are
+  * `followers`
+    * total number of Spotify followers
+  
+  
+
+For a peak into the data, see below the first five tracks in our main dataset.
+
+```{r}
+library(tidyverse)
+rap_4_ = read.csv("rap_4.csv")
+
+head(rap_4_, 3)
+```
+
     
-    
+Also see below the full set of audio features that Spotify calculates and provides for each track. Two example tracks are shown below.
+
+```{r}
+library(spotifyr)
+get_track_audio_features(id = c("3GJ4hzg4lrGwU51Y3VARbF",
+                                "3yfqSUWxFvZELEM4PmlwIR"))
+```
+
     
     
     
