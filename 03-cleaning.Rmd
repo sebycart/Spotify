@@ -37,6 +37,8 @@ After cleaning, tidying, and transforming our data, we exported our datasets int
 
 The Spotify data omits certain data which would be very helpful in this analysis and other explorations. For example, we lack detailed information on the artists - where they were born, their record labels, their nationality, gender, age,  etc. Moreover, the Spotify API provides only very high level information on tracks and artists -- for example we are not able to access data on the number of followers or listens by country. Interestingly, some of this data is available on the artist's Spotify profile, but it is not accessible via the API. Another major limitation of this data is that we do not get any insight on the listeners' demographics -- for example, their age would be very helpful in finding trends. Another feature that would have been helpful is the language of the music -- for example, just because an artist is popular in Mexico does not necessarily mean the music is in Spanish. 
 
+All of the data cleaning and transformation steps can be found [here](https://github.com/sebycart/Spotify/blob/main/Clean%20Code.R).
+
 
 
 
