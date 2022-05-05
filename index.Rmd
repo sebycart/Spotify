@@ -7,7 +7,7 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-In this project, we explore rap and country music and its listening trends across multiple countries. As hip-hop/rap fans ourselves, we were interested in analyzing the technical features of the music we listen to and comparing it to other genres. As a result, we incorporated country music into our analysis as, on the surface, it has a very different sound and fan base compared to rap music. We were interested in exploring whether the two genres have overlap, or whether they truly are as different as they seem to be. Rap and country music are two very quintessentially American products. Of course, each genre may have its roots in other regions or time periods, but they were truly popularized in the United States over the past few decades. So, we thought it interesting to explore these genres not only in the U.S., but also in other countries in order to understand the ways they have evolved if at all. Given both of our international backgrounds, we are well aware of the influence of American rap music on other country's pop culture and music industries, so we were excited to explore our theories and experiences using data. In this project, we aim to understand  
+In this project, we explore rap and country music and its listening trends across multiple countries. As hip-hop/rap fans ourselves, we were interested in analyzing the technical features of the music we listen to and comparing it to other genres. As a result, we incorporated country music into our analysis as, on the surface, it has a very different sound and fan base compared to rap music. We were interested in exploring whether the two genres have overlap, or whether they truly are as different as they seem to be. Rap and country music are two very quintessentially American products. Of course, each genre may have its roots in other regions or time periods, but they were truly popularized in the United States over the past few decades. So, we thought it interesting to explore these genres not only in the U.S., but also in other countries in order to understand the ways they have evolved if at all. Given both of our international backgrounds, we are well aware of the influence of American rap music on other country's pop culture and music industries, so we were excited to explore our theories and experiences using data. In this project, we aim to understand:
 
 * the primary technical features of rap and country music
   * is there overlap? 
@@ -17,5 +17,6 @@ In this project, we explore rap and country music and its listening trends acros
   * do other countries mostly listen to American rap or have they developed their own sounds and industries? 
   * does language play a role in the popularity of rap music?
 * how music listening trends can reflect cultural differences
-  * for example, what does Korea's style of rap say about their culture
+  * for example, what does Korea's style of rap say about their culture?
+
 

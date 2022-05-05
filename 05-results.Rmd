@@ -133,6 +133,25 @@ In this plot, we see the release date of the most popular rap and country songs.
 
 Interestingly, in analyzing the country music listening trends, we see that countries like Mexico and France seem to listen to very old country music -- even going back as far as 1960. The United States seems to be the only nation that almost exclusively listens to post 1990 country music. This likely reflects the popularity of country music today, and how country music fans listen to recently released music, whereas country fans in other nations are probably not as tapped into the modern country music scene as it is much less popular in their markets.
 
+```{r}
+rapcountry_4__ = rapcountry_4_ %>% 
+  filter(genre == "rap") %>% 
+  group_by(country, album.album_type) %>% 
+  mutate(duration = mean(duration_ms))
+
+
+ggplot(rapcountry_4__[rapcountry_4__$album.album_type != "compilation",])+
+  geom_point(aes(x = duration, y = fct_reorder2(country, album.album_type == "album", duration,
+                                                .desc = F), color = album.album_type))+
+  theme_linedraw() +
+  labs ( y = "Country",
+         x = "Track Duration (Milliseconds)",
+         col = "Release Type",
+         title = "Average Length of a Rap Song across Markets")
+```
+
+In the plot above, we show how the average length of a rap song differs across markets and varies by its type of release. The type of release refers to how a track was "published" -- either as part of an album or as a single. Interestingly, we see that the average length of a popular rap song that was released within an album is typically longer than a single track. This makes sense as single tracks are either a precursor to an album and are meant to be catchy and build hype, whereas album tracks are typically longer and part of a broader work and sound. In fact, the only the two countries that see the opposite trend are France and Korea. These are the two countries we had previously identified as having very flourishing, but young rap industries. The fact that they tend to have album tracks of shorter length, and single tracks of longer length, speaks to the fact that their industries are less established and therefore do not follow the trends of the other industries. For example, we saw in the previous plot how Mexico follows the listening patterns of the United States -- they listen to a mix of older and newer rap songs even though they have many local artists. This is because their industry is more established (possibly due to their proximity and connection to the United States). However, France and Korea mostly listen to very new rap songs, and now we see that their rap tracks follow very different trends to their older, more established counterparts. 
+
 
 ```{r}
 # India vs Korea ----------------------------------------------------------
